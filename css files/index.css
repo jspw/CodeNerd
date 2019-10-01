@@ -1,11 +1,8 @@
 .clear{
     clear: both;
 }
-
-
 .container{
     background-color: antiquewhite;
-    margin: 0px;
 }
 
 .header{
@@ -112,7 +109,7 @@
     position: relative;
     padding: 5px;
     margin: 10px;
-    border: 3px;
+    border: 1px;
     border-style: solid;
     border-color: #fff;
     outline: 0;
@@ -244,11 +241,66 @@
     background: #333;
     color: #fff;
 }
+
+.signUp{
+    padding: 10px;
+    background: #e1e8f1;
+    align-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+.speach{
+    text-align: center;
+    color: #000000;
+    font-size: 35px;
+    
+}
+
+.m-0{
+    
+    
+}
+
+.input_label{
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.userlogin{
+    background-color: rgb(255, 255, 255);
+    color: rgb(17, 17, 17);
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 10px;
+    border: 5px;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-style: italic;
+}
+
+.submit{
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: 3px;
+    border-color: #000;
+    border-style: solid;
+    outline: 0;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', "Arial, sans-serif";
+    float: right;
+}
+
 .footer{
-    background-color: rgb(166, 180, 180);;
+    background-color: rgb(63, 66, 66);;
     color: aliceblue;
     height: 600px;
-    width:1365px;
+    width: 1332px;
     display: inline-flex;
 }
 

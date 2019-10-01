@@ -1,0 +1,57 @@
+<div class="py-7 py-md-8 py-lg-9 bg-gray-dark">
+    <div class="container-lg p-responsive text-white text-center">
+      <h2 class="h1-mktg text-normal">
+        Get started for free — join the millions of developers already using GitHub to share their code, work together, and build amazing things.
+      </h2>
+    </div>
+    <div class="container-xl p-responsive py-6 mt-lg-6">
+      <!-- '"` --><!-- </textarea></xmp> --><form class="home-hero-signup js-signup-form" autocomplete="off" aria-label="Sign up" action="/join" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="wiooy7nGjc5e5ea0PCj49rTE7YEV/EwxrJFKoLIFyU4F23rgUvYdog97e9f770ZcHNT4mjNawmPwPkHSOXM9LQ==">        <input type="hidden" name="ga_id" class="js-octo-ga-id-input" value="550346872.1569950946">
+        <div class="d-lg-flex flex-wrap flex-lg-nowrap flex-justify-between">
+          <auto-check src="/signup_check/username" csrf="zwgsNNt5jRmIQ9T7Rac1s1FYdES2a5dcBKKTRYpNW2RBiAz12wc69P3u7Zkin1y7W1tzjsgf02dxQ3agJzsMGw==" class="form-group col-12 col-sm-8 col-lg-3 mx-auto mt-0 mx-lg-0 mb-3 mb-lg-0 px-3">
+            <dl class="m-0">
+              <dt class="input-label">
+                <label class="form-label text-white f5" for="user[login]-footer">Username</label>
+              </dt>
+              <dd>
+                <input type="text" name="user[login]" id="user[login]-footer" class="form-control form-control-lg input-block input-lg" placeholder="Pick a username" autocomplete="off" spellcheck="false">
+              </dd>
+            </dl>
+          </auto-check>
+
+          <auto-check src="/signup_check/email" csrf="kKxdYMWSsH5lKbjhQho2bMNweVklUFn1JBtSQO6W59MqvhvxvfG1j8NyEWNRh0OOWC5GZ2YC9JKwmw3m020Tkw==" class="form-group col-12 col-sm-8 col-lg-3 mx-auto mt-0 mx-lg-0 mb-3 mb-lg-0 px-3">
+            <dl class="m-0">
+              <dt class="input-label">
+                <label class="form-label text-white f5" for="user[email]-footer">Email</label>
+              </dt>
+              <dd>
+                <input type="text" name="user[email]" id="user[email]-footer" class="form-control form-control-lg input-block input-lg js-email-notice-trigger" placeholder="Your email address" autocomplete="off" spellcheck="false">
+              </dd>
+            </dl>
+          </auto-check>
+
+          <dl class="form-group col-12 col-sm-8 col-lg-3 mx-auto mt-0 mx-lg-0 mb-3 mb-lg-0 px-3">
+            <dt class="input-label">
+              <label class="form-label text-white f5" for="user[password]-footer">Password</label>
+            </dt>
+            <dd>
+              <input type="password" name="user[password]" id="user[password]-footer" class="form-control form-control-lg input-block input-lg" placeholder="Create a password">
+            </dd>
+          </dl>
+
+          <input type="hidden" name="source" class="js-signup-source" value="form-home">
+          <input type="text" name="required_field_6aed" id="required_field_6aed" hidden="hidden" class="form-control">
+<input type="hidden" name="timestamp" value="1569950946167" class="form-control">
+<input type="hidden" name="timestamp_secret" value="487c82265459730fee71fe9cf5d5af8020d598fed3473ccafd8dd22486ad7a93" class="form-control">
+
+          <div class="col-12 col-sm-8 col-lg-3 mx-auto mx-lg-0 mb-3 mb-lg-0 px-3 mt-4">
+            <button class="btn-mktg btn-primary-mktg btn-block mt-n1" type="submit" data-ga-click="Signup, Attempt, location:teams;">Sign up for GitHub</button>
+          </div>
+        </div>
+
+        <p class="form-control-note text-center mt-6">
+          By clicking “Sign up for GitHub”, you agree to our
+          <a class="text-white" href="https://help.github.com/terms" target="_blank">terms of service</a> and
+          <a class="text-white" href="https://help.github.com/privacy" target="_blank">privacy statement</a>. <span class="js-email-notice">We’ll occasionally send you account related emails.</span>
+        </p>
+</form>    </div>
+  </div>

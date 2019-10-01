@@ -1,0 +1,46 @@
+py-7 {
+    padding-top: 48px!important;
+    padding-bottom: 48px!important;
+}
+.py-7 {
+    padding-top: 48px!important;
+    padding-bottom: 48px!important;
+}
+.py-7 {
+    padding-top: 48px!important;
+    padding-bottom: 48px!important;
+}
+.bg-gray-dark {
+    background-color: #24292e!important;
+}
+* {
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+.f4 {
+    font-size: 16px!important;
+}
+/*
+body {
+    word-wrap: break-word;
+}
+body {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #24292e;
+    background-color: #fff;
+}
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+user agent stylesheet
+html {
+    color: -internal-root-color;
+}
+*/
