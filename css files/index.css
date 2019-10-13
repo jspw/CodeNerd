@@ -297,10 +297,10 @@
 }
 
 .footer{
+    width: 100%;
+    height: 600px;
     background-color: rgb(63, 66, 66);;
     color: aliceblue;
-    height: 600px;
-    width: 1332px;
     display: inline-flex;
 }
 
