@@ -1,3 +1,3 @@
 # CodeNerd
 A online educational website
-<a href="https://mh-shifat.github.io/CodeNerd">Visit Here</a>
+<a href="https://codenerd12.000webhostapp.com">Visit Here</a>
