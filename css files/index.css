@@ -3,6 +3,7 @@
 }
 .container{
     background-color: antiquewhite;
+    scroll-behavior: smooth;
 }
 
 .header{
@@ -34,6 +35,7 @@
   .searchBox {
     position: relative;
     left: 50%;
+    float: right;
 
     transform:  translate(-50%,50%);
     background: #2f3640;
@@ -140,7 +142,7 @@
 */
 
 .topic{
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -153,7 +155,7 @@
     width: 1000px;
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
 }
 
 .menu .card{
@@ -169,7 +171,7 @@
 } 
 .menu .card  .face.face1{
     position: relative;
-    background: rgb(27, 26, 24);
+    background: rgb(39, 38, 37);    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -184,7 +186,7 @@
 }
 
 .menu .card .face.face1 .content{
-    opacity: 0.2;
+    opacity: 0.5;
     transform: 0.5s;
 }
 
@@ -242,12 +244,25 @@
     color: #fff;
 }
 
-.signUp{
+.LOGIN{
     padding: 10px;
-    background: #e1e8f1;
+    background: #e1e8f1;    
     align-content: center;
     align-items: center;
-    height: 500px;
+    height: 330px;
+}
+
+.LOGIN h1{
+    text-align: center;
+    font-family: cursive;
+}
+
+.signUp{
+    padding: 10px;
+    background: #e1e8f1;    
+    align-content: center;
+    align-items: center;
+    height: 520px;
 }
 
 .speach{
@@ -286,6 +301,26 @@
     border: 3px;
     border-color: #000;
     border-style: solid;
+    outline: 0;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', "Arial, sans-serif";
+    float: right;
+}
+
+.already{
+    float: right;
+}
+.already button{
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: 3px;
+    border-color: #000;
+    border-style: solid;
+    margin: 10px 0px 10px 0px;
     outline: 0;
     color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);

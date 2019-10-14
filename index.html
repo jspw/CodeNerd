@@ -11,9 +11,9 @@
             <div class="header">
                 <div class="part1">
                         <div class="brand">
-                            <button id="brandB">
-                                    <img src="./assets/codenerd.png"  height="50" width="130">
-                            </button>
+                                <button id="brandB">
+                                        <a href="/index.html" ><img src="/assets/codenerd.png"  height="50" width="130"></a> 
+                                  </button>
 
                             <div class="searchBox">
 
@@ -33,7 +33,7 @@
                 </div>
                 <div class="part2">
                     <div>
-                        <button class="Login">LogIn</button>
+                        <button class="Login" onClick="myf2()" >SignUp</button>
                     </div>
                 </div>
 
@@ -82,7 +82,7 @@
                                                         Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991,
                                                          Python's design philosophy emphasizes code readability with its notable use of significant whitespace.  
                                                 </p>
-                                                <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">start learning</a>
+                                                <a href="./html files/python.html">start learning</a>
                                             </div>
                     
                                     </div>
@@ -105,11 +105,48 @@
                     
                                     </div>
                                 </div>
+                                
                         </div>
 
             </div>
 
-            <div class="signUp">
+
+
+            
+            <div class="LOGIN" id="LOGIN" style="display: none">
+                    <h1>Log in to your account</h1>
+                    <form>
+                            <dl class="m-0">
+                                    <dt>
+                                      <label class="input_label">Email</label>
+                                    </dt>
+                                    <dd>
+                                      <input type="text" class="userlogin"  placeholder="Enter your email adress">
+                                    </dd>
+                            </dl>
+                            <dl class="m-0">
+                                    <dt>
+                                      <label class="input_label">Password</label>
+                                    </dt>
+                                    <dd>
+                                      <input type="password" class="userlogin"  placeholder="Create a password">
+                                    </dd>
+                            </dl>
+    
+                            <div>
+                                    <button class="submit" type="submit">LogIn</button>
+                            </div>
+    
+                    </form>
+    
+
+    
+                    
+                </div>
+
+            
+
+            <div class="signUp" id="signup">
 
                 <p class="speach">
                      <b>
@@ -148,13 +185,38 @@
                         </div>
 
                 </form>
+
+                <div class="clear"></div>
+
+                <div class="already" id="already">
+                        <button onclick="myFunction()" >Already have an account?</button>
+                </div>
+
+
+                <script>
+                        function myFunction() {
+                            var x = document.getElementById("signup");
+                            x.classList.toggle("LOGIN");
+                            document.getElementById("LOGIN").style.display="block";
+                            document.getElementById("signup").style.display="none";
+                            
+                        }
+
+                        function myf2(){
+                            document.getElementById("LOGIN").style.display="none";
+                            document.getElementById("signup").style.display="block";
+                            document.getElementById("signup").scrollIntoView();
+                        }
+                </script>
+
+                
             </div>
 
             
 
             <div class="clear"></div>
 
-            <div class="footer">
+            <div class="footer" id="footer">
                 <h2>Developers:</h2>
                 <div class="dcard">
                     <img src="./assets/shifat.jpg" alt="Shifat" style="width:100%">
@@ -171,7 +233,7 @@
                 <div class="dcard">
                     <img src="./assets/arnob.jpg" alt="Arnob" style="width:250px" height="280px" >
                     <h1>Arnob Saha</h1>
-                    <p class="title">CTO & Founder, Ganja Society,SUST</p>
+                    <p class="title">CTO & Founder, ABCD Society,SUST</p>
                     <p>Shahjajal University Of Science And Technology</p>
                     <a href="#"><i class="fa fa-dribbble"></i></a>
                     <a href="#"><i class="fa fa-twitter"></i></a>
