@@ -1,10 +1,10 @@
 {
     "python.autoComplete.extraPaths": [
-        "C:/Users/JackSparrow/.vscode/extensions/rt-thread.rt-thread-micropython-0.2.9/microExamples/code-completion"
+        "C:/Users/JackSparrow/.vscode/extensions/rt-thread.rt-thread-micropython-0.3.0/microExamples/code-completion"
     ],
     "python.linting.pylintArgs": [
         "--init-hook",
-        "import sys; sys.path.append('C:/Users/JackSparrow/.vscode/extensions/rt-thread.rt-thread-micropython-0.2.9/microExamples/code-completion')"
+        "import sys; sys.path.append('C:/Users/JackSparrow/.vscode/extensions/rt-thread.rt-thread-micropython-0.3.0/microExamples/code-completion')"
     ],
     "python.pythonPath": "C:\\Program Files\\Python37\\python.exe"
 }
