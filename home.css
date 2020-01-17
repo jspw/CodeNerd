@@ -4,6 +4,34 @@
     /* cursor: pointer; */
     }
 
-    /* .navbar-collapse{
+     .navbar-collapse{
         transition: 3s ease;
-    } */
+    } 
+
+
+    .profile-left{
+        height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(40,56,74);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    }
+
+    .profile-left p{
+        text-align: center;
+        
+    }
+
+    .list-group-item{
+        border: 0px solid rgb(40,56,74);
+    }
+
+    .profile-right{
+        background-color: rgb(255, 255, 255);
+        color:black;
+        height: 100%;
+    }

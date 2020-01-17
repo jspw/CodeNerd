@@ -65,8 +65,8 @@ if(!$result){
             //Send email with link to resetpassword.php with user id and activation code
 
 $message = "Please click on this link to reset your password:\n\n";
-$message .= "https://codenerd12.000webhostapp.com/resetpassword.php?user_id=$user_id&key=$key";
-if(mail($email, 'Reset your password', $message, 'From:'.'mhshifat757@gmail.com')){
+$message .= "http://localhost/CodeNerd/resetpassword.php?user_id=$user_id&key=$key";
+if(mail($email, 'Reset your password', $message, 'From:'.'codenerd@gmail.com')){
         
        echo "<div class='alert alert-success'>An email has been sent to $email. Please click on the link to reset your password.</div>";
        echo $message;

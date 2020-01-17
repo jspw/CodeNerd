@@ -52,7 +52,7 @@ $result = mysqli_query($link, $sql);
     //If query is successful, show success message and invite user to login
 if(mysqli_affected_rows($link) == 1){
     echo '<div class="alert alert-success">Your account has been activated.</div>';
-    echo '<a href="index.php" type="button" class="btn btn-lg btn-sucess">Login<a/>';
+    echo '<a href="home.php" type="button" class="btn btn-lg btn-sucess">Login<a/>';
     
 }else{
     //Show error message

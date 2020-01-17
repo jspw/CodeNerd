@@ -1,0 +1,35 @@
+<div class="well"><h2>Applications of C Programming</h2>
+    <p>
+      C was initially used for system development work, particularly the programs
+      that make-up the operating system. C was adopted as a system development
+      language because it produces code that runs nearly as fast as the code written
+      in assembly language. Some examples of the use of C are -
+    </p>
+    <ul class="list">
+      <li><p>Operating Systems</p></li>
+      <li><p>Language Compilers</p></li>
+      <li><p>Assemblers</p></li>
+      <li><p>Text Editors</p></li>
+      <li><p>Print Spoolers</p></li>
+      <li><p>Network Drivers</p></li>
+      <li><p>Modern Programs</p></li>
+      <li><p>Databases</p></li>
+      <li><p>Language Interpreters</p></li>
+      <li><p>Utilities</p></li>
+    </ul>
+    <h2>Audience</h2>
+    <p>
+      This tutorial is designed for software programmers with a need to understand
+      the <b>C programming</b> language starting from scratch. This
+      <b>C tutorial</b> will give you enough understanding on C programming language
+      from where you can take yourself to higher level of expertise.
+    </p>
+    <h2>Prerequisites</h2>
+    <p>
+      Before proceeding with this tutorial, you should have a basic understanding of
+      Computer Programming terminologies. A basic understanding of any of the
+      programming languages will help you in understanding the
+      <b>C programming</b> concepts and move fast on the learning track.
+    </p>
+
+    </div>

@@ -84,3 +84,28 @@ $("#forgotpasswordform").submit(function(event){
     });
 
 });
+
+
+//contact message 
+$("#contactform").submit(function(event){
+    event.preventDefault();
+
+    var datatopost = $(this).serializeArray();
+    console.log(datatopost);
+//    console.log(datatopost);
+    //send them to signup.php using AJAX
+    $.ajax({
+        url: "contact.php",
+        type: "POST",
+        data: datatopost,
+        success: function(data){
+            
+            $('#contactformerror').html(data);
+        },
+        error: function(){
+            $("#contactformerror").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
+            
+        }
+    
+    });
+});

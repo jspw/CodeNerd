@@ -1,0 +1,62 @@
+<div class="well">
+  <p>
+    <b>C programming</b> is a general-purpose, procedural, imperative computer
+    programming language developed in 1972 by Dennis M. Ritchie at the Bell
+    Telephone Laboratories to develop the UNIX operating system. C is the most
+    widely used computer language. It keeps fluctuating at number one scale of
+    popularity along with Java programming language, which is also equally
+    popular and most widely used among modern software programmers.
+  </p>
+  <h2>Why to Learn C Programming?</h2>
+  <p>
+    <b>C programming</b> language is a MUST for students and working
+    professionals to become a great Software Engineer specially when they are
+    working in Software Development Domain. I will list down some of the key
+    advantages of learning C Programming:
+  </p>
+  <ul class="list">
+    <li><p>Easy to learn</p></li>
+    <li><p>Structured language</p></li>
+    <li><p>It produces efficient programs</p></li>
+    <li><p>It can handle low-level activities</p></li>
+    <li><p>It can be compiled on a variety of computer platforms</p></li>
+  </ul>
+  <h2>Facts about C</h2>
+  <ul class="list">
+    <li><p>C was invented to write an operating system called UNIX.</p></li>
+    <li>
+      <p>
+        C is a successor of B language which was introduced around the early
+        1970s.
+      </p>
+    </li>
+    <li>
+      <p>
+        The language was formalized in 1988 by the American National Standard
+        Institute (ANSI).
+      </p>
+    </li>
+    <li><p>The UNIX OS was totally written in C.</p></li>
+    <li>
+      <p>
+        Today C is the most widely used and popular System Programming Language.
+      </p>
+    </li>
+    <li>
+      <p>
+        Most of the state-of-the-art software have been implemented using C.
+      </p>
+    </li>
+    <li>
+      <p>
+        Today's most popular Linux OS and RDBMS MySQL have been written in C.
+      </p>
+    </li>
+  </ul>
+  <h2>Hello World using C Programming.</h2>
+  <p>
+    Just to give you a little excitement about <b>C programming</b>, I'm going
+    to give you a small conventional C Programming Hello World program, You can
+    try it using <b>Run Code</b> button.
+  </b>
+</div>
