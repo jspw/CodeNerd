@@ -52,7 +52,7 @@ include("rememberme.php");
             <div class="navbar-collapse collapse" id="navCol">
                 <ul class="nav navbar-nav">
                     <li><a href="#TECHNOLOGY">TECHNOLOGY</a></li>
-                    <li><a href="#Algorithm">ALGORITHM</a></li>
+                    <li><a href="./dfs.html">ALGORITHM</a></li>
                     <li><a href="#CONTACT">CONTACT</a></li>
 
                 </ul>
