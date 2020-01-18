@@ -30,12 +30,13 @@ $("#signupform").submit(function(event){
 
 
 //Ajax Call for the login form
+
 $("#loginform").submit(function(event){ 
     
     event.preventDefault();
     
     var datatopost = $(this).serializeArray();
- //   console.log(datatopost);
+    console.log(datatopost);
  //   console.log("Hwlaw");
     //send them to login.php using AJAX
     $.ajax({
@@ -44,7 +45,8 @@ $("#loginform").submit(function(event){
         data: datatopost,
         success: function(data){
             if(data == "success"){
-                window.location = "mainpageloggedin.php";
+                location.reload();
+             //   window.location = "mainpageloggedin.php";
             }else{
                 $('#loginmessage').html(data);   
             }
@@ -57,6 +59,7 @@ $("#loginform").submit(function(event){
     });
 
 });
+
 
 
 //Ajax Call for the forgot password form
@@ -91,7 +94,7 @@ $("#contactform").submit(function(event){
     event.preventDefault();
 
     var datatopost = $(this).serializeArray();
-    console.log(datatopost);
+   // console.log(datatopost);
 //    console.log(datatopost);
     //send them to signup.php using AJAX
     $.ajax({
@@ -109,3 +112,28 @@ $("#contactform").submit(function(event){
     
     });
 });
+
+
+//ajx call for about me
+
+// $("#aboutmeform").submit(function(event){
+//     event.preventDefault();
+
+//     var datatopost = $(this).serializeArray();
+//     console.log("HELLO");
+// //    console.log(datatopost);
+//     //send them to signup.php using AJAX
+//     $.ajax({
+//         url: "aboutme.php",
+//         type: "POST",
+//         data: datatopost,
+//         success: function(data){
+            
+//             console.alert("about me updated");
+//         },
+//         error: function(){
+//             console.alert("about me update faild");
+//         }
+    
+//     });
+// });

@@ -2,6 +2,10 @@
 session_start();
 include("connection.php");
 
+if(isset($_SESSION['user_id'])){
+    header("location: test-logged-in.php");
+}
+
 //log Out
 
 include("logout.php");
@@ -100,6 +104,10 @@ include("rememberme.php");
 			<li id="C - Quick Guide"><a href="/cprogramming/c_quick_guide.htm">C - Quick Guide</a></li>
 			<li id="C - Useful Resources"><a href="/cprogramming/c_useful_resources.htm">C - Useful Resources</a></li>
 			<li id="C - Discussion"><a href="/cprogramming/cprogramming_discussion.htm">C - Discussion</a></li>
+
+			
+
+			<a id="quiz" href="quiz.php"><li  class="h4 title">Quiz:</li></a>
 		</ul>
 
 
@@ -128,8 +136,8 @@ include("rememberme.php");
 			<div class="navbar-collapse collapse" id="navCol">
 				<ul class="nav navbar-nav">
 					<!-- <li><a href="home.php">Home</a></li> -->
-					<li><a href="#">Technology</a></li>
-					<li><a href="#">Algorithm</a></li>
+					<li><a href="programming-tutorials.php">Technology</a></li>
+					<li><a href="algorithms.php">Algorithm</a></li>
 					<li><a href="#">About us</a></li>
 
 				</ul>

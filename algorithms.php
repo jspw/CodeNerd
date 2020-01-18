@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['user_id'])){
-    header("location: home.php");
-}else{
+if(isset($_SESSION['user_id'])){
+	
+	header("location: algorithms-logged-in.php");
     include("connection.php");
 
 //log Out
@@ -66,49 +66,14 @@ include("rememberme.php");
 		<i href="javascript:void(0)" onclick="closeNav()" class=" closebtn fas fa-arrow-left" style="cursor: pointer ; margin-top: 30px"></i>
 
 		<ul class="list-group">
-			<li class="h4 title">C Programming Tutorial:</li>
-			<li id="C-Home"><a href="#">C - Home</a></li>
-			<!-- <li><a id="" href="/cprogramming/c_overview.htm">C - Overview</a></li> -->
-			<li id="C-Environment-Setup"><a href="#">C - Environment Setup</a></li>
-			<li id="C-Program-Structure"><a href="/cprogramming/c_program_structure.htm">C - Program Structure</a></li>
-			<li id="C-Basic-Syntax"><a href="/cprogramming/c_basic_syntax.htm">C - Basic Syntax</a></li>
-			<li id="C-Data-Types"><a href="/cprogramming/c_data_types.htm">C - Data Types</a></li>
-			<li id="C-Variables"><a href="/cprogramming/c_variables.htm">C - Variables</a></li>
-			<li id="C-Constants-and-Literals"><a href="/cprogramming/c_constants.htm">C - Constants</a></li>
-			<li id="C-Storage-Classes"><a href="/cprogramming/c_storage_classes.htm">C - Storage Classes</a></li>
-			<li id="C - Operators"><a href="/cprogramming/c_operators.htm">C - Operators</a></li>
-			<li id="C - Decision Making"><a href="/cprogramming/c_decision_making.htm">C - Decision Making</a></li>
-			<li id="C-Loops"><a href="/cprogramming/c_loops.htm">C - Loops</a></li>
-			<li id="C-Functions"><a href="/cprogramming/c_functions.htm">C - Functions</a></li>
-			<li id="C - Scope Rules"><a href="/cprogramming/c_scope_rules.htm">C - Scope Rules</a></li>
-			<li id="C - Arrays"><a href="/cprogramming/c_arrays.htm">C - Arrays</a></li>
-			<li id="C - Pointers"><a href="/cprogramming/c_pointers.htm">C - Pointers</a></li>
-			<li id="C - Strings"><a href="/cprogramming/c_strings.htm">C - Strings</a></li>
-			<li id="C - Structures"><a href="/cprogramming/c_structures.htm">C - Structures</a></li>
-			<li id="C - Unions"><a href="/cprogramming/c_unions.htm">C - Unions</a></li>
-			<li id="C - Bit Fields"><a href="/cprogramming/c_bit_fields.htm">C - Bit Fields</a></li>
-			<li id="C - Typedef"><a href="/cprogramming/c_typedef.htm">C - Typedef</a></li>
-			<li id="C - Input &amp; Output"><a href="/cprogramming/c_input_output.htm">C - Input &amp; Output</a></li>
-			<li id="C - File I/O"><a href="/cprogramming/c_file_io.htm">C - File I/O</a></li>
-			<li id="C - Preprocessors"><a href="/cprogramming/c_preprocessors.htm">C - Preprocessors</a></li>
-			<li id="C - Header Files"><a href="/cprogramming/c_header_files.htm">C - Header Files</a></li>
-			<li id="C - Type Casting"><a href="/cprogramming/c_type_casting.htm">C - Type Casting</a></li>
-			<li id="C - Error Handling"><a href="/cprogramming/c_error_handling.htm">C - Error Handling</a></li>
-			<li id="C - Recursion"><a href="/cprogramming/c_recursion.htm">C - Recursion</a></li>
-			<li id="C - Variable Arguments"><a href="/cprogramming/c_variable_arguments.htm">C - Variable Arguments</a></li>
-			<li id="C - Memory Management"><a href="/cprogramming/c_memory_management.htm">C - Memory Management</a></li>
-			<li id="C - Command Line Arguments"><a href="/cprogramming/c_command_line_arguments.htm">C - Command Line Arguments</a></li>
+			<li class="h4 title">Graph Traversal:</li>
+            
+            <li><a href="./bfs.php">Breadth First Search</a></li>
+            <li><a href="./dfs.php">Depth First Search</a></li>
 
-
-			<li class="h4 title">C Programming useful Resources:</li>
-
-
-			<li id="C - Questions &amp; Answers"><a href="/cprogramming/cprogramming_questions_answers.htm">C - Questions &amp; Answers</a></li>
-			<li id="C - Quick Guide"><a href="/cprogramming/c_quick_guide.htm">C - Quick Guide</a></li>
-			<li id="C - Useful Resources"><a href="/cprogramming/c_useful_resources.htm">C - Useful Resources</a></li>
-			<li id="C - Discussion"><a href="/cprogramming/cprogramming_discussion.htm">C - Discussion</a></li>
-
-			<a id="quiz" href="quiz.php"><li  class="h4 title">Quiz:</li></a>
+            <a id="quiz" href="quiz.php"><li  class="h4 title">Quiz:</li></a>
+            
+            <a id="quiz" href="problems.php"><li  class="h4 title">Problems:</li></a>
 		</ul>
 
 
@@ -137,19 +102,8 @@ include("rememberme.php");
 			<div class="navbar-collapse collapse" id="navCol">
 				<ul class="nav navbar-nav">
 					<!-- <li><a href="home.php">Home</a></li> -->
-					<li><a href="programming-tutorials-loged-in.php">Technology</a></li>
-                    <li><a href="algorithms-logged-in.php">Algorithm</a></li>
-                    
-                     <!-- DropDown Menu -->
-                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Courses
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">C++</a></li>
-                            <li><a href="#">Java</a></li>
-                            <li><a href="#">Python</a></li>
-                        </ul>
-                    </li>
+					<li><a href="programming-tutorials-loged-in.php">TECHNOLOGY</a></li>
+                    <li><a href="algorithms.php">ALGORITHM</a></li>
 
                     <li><a href="#CONTACT">CONTACT</a></li>
 
@@ -167,42 +121,19 @@ include("rememberme.php");
 					</div>
 				</form>
 
-				
-                <ul class="nav navbar-nav navbar-right">
-                    <li role="presentation">
-                        <a href="#"><span class="glyphicon glyphicon-bell"></span> Notifications<span class="badge">4</span></a>
+                            <ul class="nav navbar-nav navbar-right">
 
-                    </li>
-                    <li role="presentation">
-					<?php
-                                    include('connection.php');
+            <!-- Login Button  -->
+            <form class="nav navbar-form navbar-right">
+                <li><input class="btn btn-success " type="button" value="Login" data-target="#loginmodal" data-toggle="modal"></li>
 
-                                    $id= $_SESSION['user_id'];
-                                //    echo "Id is : " . $id;
-                                    $sql = "SELECT username FROM users WHERE user_id='$id'";
-                                    $result = mysqli_query($link, $sql); 
-                                    if(!$result){
-                                        echo '<div class="alert alert-danger">Error running the query!</div>';
-                                        exit;
-                                    }
-                                        //log the user in: Set session variables
+            </form>
+            <!-- Sign Up Button  -->
+            <form class="nav navbar-form navbar-right">
+                <li><input class="btn btn-info" type="button" value="Signup" data-target="#signupmodal" data-toggle="modal"></li>
+            </form>
 
-                                    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                                    $username=$row['username'];
-
-                                    echo ' <a href="profile.php"><span class="glyphicon glyphicon-user"></span> ' . $username . '</a>  ';
-
-                        ?>
-                    </li>
-
-
-                    <li><a href="home.php?logout=1">LogOut</a></li>
-
-                    <!-- <form class="navbar-form navbar-right">
-                        <input  class="btn btn-success " type="button" value="Logout" >
-                        
-                    </form> -->
-                </ul>
+            </ul>
 
 			</div>
 
@@ -212,7 +143,7 @@ include("rememberme.php");
 		</nav>
 
 
-		<button class="openbtn" onclick="openNav()">☰</button>
+		<button class="openbtn" onclick="openNav()"><i class="glyphicon glyphicon-indent-left"></i></button>
 
 		<div id="beforeCompiler">
 
@@ -220,7 +151,7 @@ include("rememberme.php");
 
 		<!-- <div class="container-fluid"> -->
 
-		<h3>Welcome to the C Programming</h3>
+		<h3>Welcome to Algorithms</h3>
 
 
 		<form id="form" name="f2" method="POST">

@@ -22,56 +22,71 @@
 
 // }
 
+$("#quiz").click(function(event){
+  event.preventDefault();
+  $("#beforeCompiler").load("quiz.php");
+});
+
 $("#C-Home").click(function(event){
   //  fun(event,"C-Home");
   event.preventDefault();
+  $("#code").prop("disabled", false);
   $("#beforeCompiler").load("C-Home.php");
 });
 
 $("#C-Environment-Setup").click(function(event){
     //  fun(event,"C-Home");
     event.preventDefault();
+    $("#code").prop("disabled", false);
     $("#beforeCompiler").load("C-Environment-Setup.php");
   });
   $("#C-Program-Structure").click(function(event){
     //  fun(event,"C-Home");
     event.preventDefault();
+    $("#code").prop("disabled", false);
     $("#beforeCompiler").load("C-Program-Structure.php");
   });
   $("#C-Variables").click(function(event){
     //  fun(event,"C-Home");
     event.preventDefault();
+    $("#code").prop("disabled", false);
     $("#beforeCompiler").load("C-Variables.php");
   });
   $("#C-Storage-Classes").click(function(event){
     //  fun(event,"C-Home");
     event.preventDefault();
+    $("#code").prop("disabled", false);
     $("#beforeCompiler").load("C-Storage-Classes.php");
   });
   $("#C-Loops").click(function(event){
     //  fun(event,"C-Home");
     event.preventDefault();
+    $("#code").prop("disabled", false);
     $("#beforeCompiler").load("C-Loops.php");
   });
   $("#C-Functions").click(function(event){
     //  fun(event,"C-Home");
     event.preventDefault();
+    $("#code").prop("disabled", false);
     $("#beforeCompiler").load("C-Functions.php");
   });
   $("#C-Data-Types").click(function(event){
     //  fun(event,"C-Home");
     event.preventDefault();
+    $("#code").prop("disabled", false);
     $("#beforeCompiler").load("C-Data-Types.php");
   });
   $("#C-Constants-and-Literals").click(function(event){
     //  fun(event,"C-Home");
     event.preventDefault();
+    $("#code").prop("disabled", false);
     $("#beforeCompiler").load("C-Constants-and-Literals.php");
   });
 
   $("#C-Basic-Syntax").click(function(event){
     //  fun(event,"C-Home");
     event.preventDefault();
+    $("#code").prop("disabled", false);
     $("#beforeCompiler").load("C-Basic-Syntax.php");
   });
 

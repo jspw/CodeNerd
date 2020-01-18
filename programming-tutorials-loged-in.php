@@ -42,7 +42,7 @@ if(!isset($_SESSION['user_id'])){
             <div class="navbar-collapse collapse" id="navCol">
                 <ul class="nav navbar-nav">
                     <li><a href="#TECHNOLOGY">Technology</a></li>
-                    <li><a href="#Algorithm">ALGORITHM</a></li>
+                    <li><a href="algorithms-logged-in.php">ALGORITHM</a></li>
 
 
 
@@ -79,7 +79,25 @@ if(!isset($_SESSION['user_id'])){
 
                     </li>
                     <li role="presentation">
-                        <a href="profile.php"><i class="glyphicon glyphicon-user"></i> Profile</a>
+                    <?php
+                                    include('connection.php');
+
+                                    $id= $_SESSION['user_id'];
+                                //    echo "Id is : " . $id;
+                                    $sql = "SELECT username FROM users WHERE user_id='$id'";
+                                    $result = mysqli_query($link, $sql); 
+                                    if(!$result){
+                                        echo '<div class="alert alert-danger">Error running the query!</div>';
+                                        exit;
+                                    }
+                                        //log the user in: Set session variables
+
+                                    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                                    $username=$row['username'];
+
+                                    echo ' <a href="profile.php"><span class="glyphicon glyphicon-user"></span> ' . $username . '</a>  ';
+
+                        ?>
                     </li>
 
 

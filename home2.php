@@ -2,10 +2,6 @@
 session_start();
 include("connection.php");
 
-if(isset($_SESSION['user_id'])){
-    header("location: mainpageloggedin.php");
-}
-
 //log Out
 
 include("logout.php");
@@ -56,7 +52,7 @@ include("rememberme.php");
             <div class="navbar-collapse collapse" id="navCol">
                 <ul class="nav navbar-nav">
                     <li><a href="#TECHNOLOGY">TECHNOLOGY</a></li>
-                    <li><a href="algorithms.php">ALGORITHM</a></li>
+                    <li><a href="./dfs.html">ALGORITHM</a></li>
                     <li><a href="#CONTACT">CONTACT</a></li>
 
                 </ul>

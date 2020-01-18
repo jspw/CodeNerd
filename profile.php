@@ -3,6 +3,43 @@ session_start();
 if (!isset($_SESSION['user_id'])) {
     header("location: home.php");
 }
+
+include('connection.php');
+
+$id = $_SESSION['user_id'];
+//    echo "Id is : " . $id;
+
+//get data from users
+$sql = "SELECT * FROM users WHERE user_id='$id'";
+$result = mysqli_query($link, $sql);
+if (!$result) {
+    echo '<div class="alert alert-danger">Error running the query!</div>';
+    exit;
+}
+//log the user in: Set session variables
+
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+$username = $row['username'];
+$email = $row['email'];
+
+//get more information about user 
+
+$firstname = $row['firstname'];
+$lastname = $row['lastname'];
+$country = $row['country'];
+$github = $row['github'];
+$facebook = $row['facebook'];
+$linkedin = $row['linkedin'];
+$university = $row['university'];
+$department = $row['department'];
+$organization = $row['organization'];
+$aboutme = $row['aboutme'];
+$completedcourse = $row['completedcourse'];
+$incompletedcourse = $row['incompletedcourse'];
+$currentcourse = $row['currentcourse'];
+
+
+
 ?>
 
 <!doctype html>
@@ -11,7 +48,7 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -19,12 +56,17 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="stylesheet" type="text/css" href="home.css">
 
 
+    <!-- icons  -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
     <title>CodeNerd</title>
+
+
 
 </head>
 
 
-<body>
+<body id="body">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -43,7 +85,7 @@ if (!isset($_SESSION['user_id'])) {
             <div class="navbar-collapse collapse" id="navCol">
                 <ul class="nav navbar-nav">
                     <li><a href="programming-tutorials-loged-in.php">TECHNOLOGY</a></li>
-                    <li><a href="#Algorithm">ALGORITHM</a></li>
+                    <li><a href="algorithms-logged-in.php">ALGORITHM</a></li>
 
 
 
@@ -72,7 +114,18 @@ if (!isset($_SESSION['user_id'])) {
                     </li>
 
                     <li class="dropdown" role="presentation">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> ShhifaT57<span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>
+
+                            <!-- usernmae  -->
+
+
+                            <?php
+
+                            echo $username;
+
+                            ?>
+
+                            <span class="caret"></span></a>
                         <ul class="dropdown-menu" style="height: auto">
 
                             <li role="presentation" class="list"><a href="account.php?" style=" text-align:center"><strong>Account Setting</strong></a></li>
@@ -89,7 +142,299 @@ if (!isset($_SESSION['user_id'])) {
         </div>
     </nav>
 
-    
+
+    <div class="container-fluid" style="margin-top: 50px">
+        <div class="row">
+            <div class="col-sm-8 col-md-8 col-lg-4" style="background-color: #ffff">
+                <div style="margin-left:20px;margin-top:20px;padding:20px">
+                    <div style="border: 2px solid #E1E4E8;border-radius:10px ; padding:5px">
+                        <img src="pc.png" class="img-responsive img-thumbnail">
+                        <br>
+                        <p style="font-size:15px;color:black"><span class="glyphicon glyphicon-stats"> Student <span class="badge" style="background: black;color:white;font-size:10px">2</span></span></p>
+                    </div>
+                    <br>
+                    <div style="padding: 10px">
+                        <h2 id="username" style="font-weight: 700;
+                            font-family: Arial,Helvetica,sans-serif;
+                            font-family: var(--font-family-text);
+                            margin: 20px 0 0;
+                            text-transform: capitalize;
+                            word-break: break-all;
+                            font-size: 26px;
+                            line-height: 1.2;">
+                            <?php
+
+                            echo $username;
+
+                            ?>
+                        </h2>
+                        <p style="font-weight: 400;
+                            font-family: monaco,Courier,monospace;
+                            font-family: var(--font-family-input);
+                            margin-top: 0;
+                            margin-bottom: 15px;
+                            color: #576871;
+                            font-size: 16px;">@
+                            <?php
+
+                            echo $username;
+
+                            ?>
+                        </p>
+                        <p id="country" style="margin-top: 5px;
+                            color: #576871;
+                            font-size: 14px;"><i class="glyphicon glyphicon-map-marker"></i>
+                            <?php echo $country ?>
+                        </p>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <a id="github" href="<?php echo $github ?>" class="fab fa-github"></a>
+                            </div>
+                            <div class="col-sm-3">
+                                <a id="linkedin" href="<?php echo $linkedin ?>" class="fab fa-linkedin"></a>
+                            </div>
+                            <div class="col-sm-3">
+                                <a id="facebook" href="<?php echo $facebook ?>" class="fab fa-facebook"></a>
+                            </div>
+                            <div class="col-sm-3">
+
+                                <?php
+                                echo '<a id="website" href="mailto:' . $email . '"  target="_blank" class="glyphicon glyphicon-envelope"></a>';
+                                ?>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <br>
+
+                        <a style="cursor: pointer" data-toggle="modal" data-target="#editintromodal"><i class="glyphicon glyphicon-edit"></i> Edit Intro</a>
+
+                        <hr>
+
+                        <h2 style="font-weight: 700;
+                            font-family: Arial,Helvetica,sans-serif;
+                            font-family: var(--font-family-text);
+                            margin: 20px 0 0;
+                            text-transform: capitalize;
+                            word-break: break-all;
+                            font-size: 20px;
+                            line-height: 1.2;">
+                            About<i role="button" data-toggle="modal" data-target="#aboutmemodal" class="glyphicon glyphicon-pencil pull-right"></i>
+                        </h2>
+
+                        <br><br>
+
+                        <p>Education</p>
+                        <h4 style="color: black"><?php  echo $university ?></h4>
+
+                        <p>Field of Study</p>
+                        
+                        <h4><?php  echo $department ?></h4>
+
+                        <p> More about me</p>
+                        <h5><?php  echo $aboutme ?></h5>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-6 col-lg-8" style="background-color: #FFFFFF">
+                <div style="margin-left:20px;margin-top:20px;padding:20px">
+
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#home">Activities</a></li>
+                        <li><a data-toggle="tab" href="#menu1">Incomplete Courses</a></li>
+                        <li><a data-toggle="tab" href="#menu2">Achievements</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="home" class="tab-pane fade in active">
+                            <h3>Recent Activities</h3>
+                            <p>Bla bla bla</p>
+                            <ul>
+
+                            </ul>
+                        </div>
+                        <div id="menu1" class="tab-pane fade">
+                            <h3>Menu 1</h3>
+                            <p>Some content in menu 1.</p>
+                        </div>
+                        <div id="menu2" class="tab-pane fade">
+                            <h3>Menu 2</h3>
+                            <p>Some content in menu 2.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Edit Intro -->
+
+    <div class="modal fade" id="editintromodal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <form id="editintroform" class="form" role="form" method="POST">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Edit Intro</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div id="editintromessage"></div>
+
+
+                        <div class="form-group">
+                            <label for="firstname">First Name</label>
+                            <input type="text" class="form-control" id="firstname" name="firstname">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" class="form-control" id="lastname" name="lastname">
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <input type="text" name="country" class="form-control" id="country">
+                        </div>
+                        <div class="form-group">
+                            <label for="innkedin">Linkedin URL</label>
+                            <input type="text" name="linkedin" class="form-control" id="linkedin">
+                        </div>
+                        <div class="form-group">
+                            <label for="github">Github URL</label>
+                            <input type="text" name="github" class="form-control" id="github">
+                        </div>
+                        <div class="form-group">
+                            <label for="facebook">Facebook URL</label>
+                            <input type="text" name="facebook" class="form-control" id="facebook">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+
+                        <input type="submit" class="btn btn-success btn-block" id="save" name="save" value="Save">
+
+                        <!-- <input type="submit" class="btn btn-success btn-block" data-dismiss="modal" id="save" name="save" value="Save"> -->
+
+                        <button type="button" class="btn btn btn-default btn-block" data-dismiss="modal">Cancel</button>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+
+    </div>
+
+    <!-- About -->
+    <form id="aboutmeform" method="post">
+        <div class="modal fade" id="aboutmemodal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="myModalLabel">About</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div id="aboutmemessage"></div>
+
+
+                        <div class="form-group">
+                            <label for="aboutme">About Me</label>
+                            <textarea type="text" class="form-control" id="aboutme" name="aboutme"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="university">University/College</label>
+                            <input type="text" class="form-control" id="university" name="university">
+                        </div>
+                        <div class="form-group">
+                            <label for="department">Feild of Study</label>
+                            <input type="text" name="department" class="form-control" id="department">
+                        </div>
+                        <div class="form-group">
+                            <label for="organization">Company/Organization</label>
+                            <input type="text" name="organization" class="form-control" id="organization">
+                        </div>
+                        <div class="modal-footer">
+
+                            <input type="submit" class="btn btn-success btn-block" name="save" value="Save">
+
+                            <button  type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+
+    <script>
+        // /ajx call for about me
+
+
+        $("#aboutmeform").submit(function(event) {
+            event.preventDefault();
+
+            var datatopost = $(this).serializeArray();
+            console.log("HELLO");
+            console.log(datatopost);
+            //send them to signup.php using AJAX
+            $.ajax({
+                url: "aboutme.php",
+                type: "POST",
+                data: datatopost,
+                success: function(data) {
+
+                    location.reload();
+                },
+                error: function() {
+                    $("#aboutmemessage").html(data);
+                }
+
+            });
+        });
+
+        // /ajx call for edit Info
+
+        $("#editintroform").submit(function(event) {
+            event.preventDefault();
+
+            var datatopost = $(this).serializeArray();
+            console.log("HELLO");
+            console.log(datatopost);
+            //send them to signup.php using AJAX
+            $.ajax({
+                url: "editinfo.php",
+                type: "POST",
+                data: datatopost,
+                success: function(data) {
+
+                    location.reload();
+                    
+                },
+                error: function() {
+                    $("#editintromessage").html(data);
+                }
+
+            });
+        });
+    </script>
+
+
+
+
 
     <script src="home.js"></script>
 

@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(isset($_SESSION['user_id'])){
+        header("location: programming-tutorials-loged-in.php");
+    }
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -35,7 +42,7 @@
             <div class="navbar-collapse collapse" id="navCol">
                 <ul class="nav navbar-nav">
                     <li><a href="#TECHNOLOGY">TECHNOLOGY</a></li>
-                    <li><a href="#Algorithm">ALGORITHM</a></li>
+                    <li><a href="algorithms.php">ALGORITHM</a></li>
 
 
                     <li><a href="#CONTACT">CONTACT</a></li>
@@ -75,6 +82,199 @@
 
         </div>
     </nav>
+
+    <div>
+
+<!-- login form-->
+
+<form id="loginform" class="form" method="POST">
+    <div class="modal fade" id="loginmodal" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                    <p class="h3" id="modalLabel">LogIn:</p>
+                </div>
+                <div class="modal-body">
+                    <!-- login Message  -->
+                    <div id="loginmessage">
+
+                    </div>
+
+
+                    <div class="input-group">
+                        <!-- <label for="loginemail">
+                            Email<span style="color: red;"> *</span>
+                        </label> -->
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="email" id="loginemail" placeholder="Email" class="form-control" maxlength="50" name="loginemail">
+                    </div>
+
+                    <div class="input-group">
+
+                        <!-- <label for="password">
+                            Password<span style="color: red;"> *</span>
+                        </label> -->
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" id="loginpassword" placeholder="Password" class="form-control" maxlength="30" name="loginpassword">
+                    </div>
+
+                    <div class="checkbox">
+
+                        <label for="checkbox">
+                            <input type="checkbox" id="rememberMe" name="rememberme">
+                            Remember me
+                        </label>
+
+                        <a class="pull-right" style="cursor: pointer;" data-target="#forgotpasswordModal" data-toggle="modal" data-dismiss="modal">
+                            Forgot password?
+                        </a>
+                    </div>
+
+
+
+                </div>
+                <div class="modal-footer">
+
+                    <input class="btn btn-info pull-left" type="button" value="Regester" data-target="#signupmodal" data-toggle="modal" data-dismiss="modal">
+
+                    <input type="submit" class="btn btn-success btn-right" name="login" value="Login">
+
+                    <button class="btn btn-default btn-right" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</form>
+
+
+<!--Forgot password form-->
+<form method="post" id="forgotpasswordform">
+    <div class="modal" id="forgotpasswordModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                    <h4 id="myModalLabel">
+                        Forgot Password? Enter your email address:
+                    </h4>
+                </div>
+                <div class="modal-body">
+
+                    <!--forgot password message from PHP file-->
+                    <div id="forgotpasswordmessage"></div>
+
+
+                    <div class="input-group">
+                        <!-- <label for="email">
+                            Email address<span style="color: red;"> *</span>
+                        </label> -->
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="email" id="forgotemail" placeholder="Email address" class="form-control" maxlength="50" name="forgotemail">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input class="btn btn-success" name="forgotpassword" type="submit" value="Submit">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Cancel
+                    </button>
+                    <input class="btn btn-info pull-left" type="button" value="Regester" data-target="#signupmodal" data-toggle="modal" data-dismiss="modal">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Signup  form-->
+<form id="signupform" class="form" method="POST">
+
+    <div class="modal fade" id="signupmodal" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                    <p class="h3" id="modalLabel">Sing Up here:</p>
+                </div>
+                <div class="modal-body">
+
+                    <!-- Signup Message -->
+
+                    <div id="signupmessage">
+
+                    </div>
+
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <!-- <label for="username">
+                            Username<span style="color: red;"> *</span>
+                        </label> -->
+                        <input type="text" id="signupusername" placeholder="Username" class="form-control" name="signupusername">
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <!-- <label for="email">
+                            Email address<span style="color: red;"> *</span>
+                        </label> -->
+                        <input type="email" id="signupemail" placeholder="Email address" class="form-control" maxlength="50" name="signupemail">
+                    </div>
+
+                    <div class="input-group">
+                        <!-- <label for="password">
+                            Password<span style="color: red;"> *</span>
+                        </label> -->
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" id="signuppassword" placeholder="Password" class="form-control" name="signuppassword" maxlength="30">
+
+                    </div>
+
+                    <div class="input-group">
+                        <!-- <label for="password2">
+                            Re-enter Password<span style="color: red;"> *</span>
+                        </label> -->
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-question-sign"></i></span>
+
+                        <input type="password" id="signuppassword2" placeholder="Re-enter Password" class="form-control" name="signuppassword2" maxlength="30">
+                    </div>
+
+
+
+                </div>
+                <div class="modal-footer">
+
+                    <input type="submit" class="btn btn-success btn-right" name="signup" value="SignUp">
+
+                    <button class="btn btn-default btn-right" data-dismiss="modal">Cancel</button>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</form>
+
+
+</div>
 
 
     <!-- container technology and other section  -->

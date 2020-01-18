@@ -1,10 +1,9 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['user_id'])){
-    header("location: home.php");
-}else{
+if(isset($_SESSION['user_id'])){
     include("connection.php");
+    header("location: bfs-logged-in.php");
 
 //log Out
 
@@ -50,11 +49,57 @@ include("rememberme.php");
 
 	<title>CodeNerd</title>
 
-	<style>
+  <style>
+/* .centered
+{
+  margin: auto;
+  width: 50%;
+  
+  
+} */
+a{
+    color: lightsalmon;
+}
+h1,.hint{
+  text-align: center;
+  letter-spacing: 2px;
+}
+h3{
+    letter-spacing: 2px;
+}
+/* code{
+  color: darkred;
+  background-color: lavenderblush ;
+}
+.sura {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 15%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+} */
 
 
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
 
-	</style>
+li a.active {
+  background-color:#555;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+</style>
 
 </head>
 
@@ -66,49 +111,14 @@ include("rememberme.php");
 		<i href="javascript:void(0)" onclick="closeNav()" class=" closebtn fas fa-arrow-left" style="cursor: pointer ; margin-top: 30px"></i>
 
 		<ul class="list-group">
-			<li class="h4 title">C Programming Tutorial:</li>
-			<li id="C-Home"><a href="#">C - Home</a></li>
-			<!-- <li><a id="" href="/cprogramming/c_overview.htm">C - Overview</a></li> -->
-			<li id="C-Environment-Setup"><a href="#">C - Environment Setup</a></li>
-			<li id="C-Program-Structure"><a href="/cprogramming/c_program_structure.htm">C - Program Structure</a></li>
-			<li id="C-Basic-Syntax"><a href="/cprogramming/c_basic_syntax.htm">C - Basic Syntax</a></li>
-			<li id="C-Data-Types"><a href="/cprogramming/c_data_types.htm">C - Data Types</a></li>
-			<li id="C-Variables"><a href="/cprogramming/c_variables.htm">C - Variables</a></li>
-			<li id="C-Constants-and-Literals"><a href="/cprogramming/c_constants.htm">C - Constants</a></li>
-			<li id="C-Storage-Classes"><a href="/cprogramming/c_storage_classes.htm">C - Storage Classes</a></li>
-			<li id="C - Operators"><a href="/cprogramming/c_operators.htm">C - Operators</a></li>
-			<li id="C - Decision Making"><a href="/cprogramming/c_decision_making.htm">C - Decision Making</a></li>
-			<li id="C-Loops"><a href="/cprogramming/c_loops.htm">C - Loops</a></li>
-			<li id="C-Functions"><a href="/cprogramming/c_functions.htm">C - Functions</a></li>
-			<li id="C - Scope Rules"><a href="/cprogramming/c_scope_rules.htm">C - Scope Rules</a></li>
-			<li id="C - Arrays"><a href="/cprogramming/c_arrays.htm">C - Arrays</a></li>
-			<li id="C - Pointers"><a href="/cprogramming/c_pointers.htm">C - Pointers</a></li>
-			<li id="C - Strings"><a href="/cprogramming/c_strings.htm">C - Strings</a></li>
-			<li id="C - Structures"><a href="/cprogramming/c_structures.htm">C - Structures</a></li>
-			<li id="C - Unions"><a href="/cprogramming/c_unions.htm">C - Unions</a></li>
-			<li id="C - Bit Fields"><a href="/cprogramming/c_bit_fields.htm">C - Bit Fields</a></li>
-			<li id="C - Typedef"><a href="/cprogramming/c_typedef.htm">C - Typedef</a></li>
-			<li id="C - Input &amp; Output"><a href="/cprogramming/c_input_output.htm">C - Input &amp; Output</a></li>
-			<li id="C - File I/O"><a href="/cprogramming/c_file_io.htm">C - File I/O</a></li>
-			<li id="C - Preprocessors"><a href="/cprogramming/c_preprocessors.htm">C - Preprocessors</a></li>
-			<li id="C - Header Files"><a href="/cprogramming/c_header_files.htm">C - Header Files</a></li>
-			<li id="C - Type Casting"><a href="/cprogramming/c_type_casting.htm">C - Type Casting</a></li>
-			<li id="C - Error Handling"><a href="/cprogramming/c_error_handling.htm">C - Error Handling</a></li>
-			<li id="C - Recursion"><a href="/cprogramming/c_recursion.htm">C - Recursion</a></li>
-			<li id="C - Variable Arguments"><a href="/cprogramming/c_variable_arguments.htm">C - Variable Arguments</a></li>
-			<li id="C - Memory Management"><a href="/cprogramming/c_memory_management.htm">C - Memory Management</a></li>
-			<li id="C - Command Line Arguments"><a href="/cprogramming/c_command_line_arguments.htm">C - Command Line Arguments</a></li>
+			<li class="h4 title">Graph Traversal:</li>
+            
+            <li><a class="active" href="./bfs.php">Breadth First Search</a></li>
+            <li><a href="./dfs.php">Depth First Search</a></li>
 
-
-			<li class="h4 title">C Programming useful Resources:</li>
-
-
-			<li id="C - Questions &amp; Answers"><a href="/cprogramming/cprogramming_questions_answers.htm">C - Questions &amp; Answers</a></li>
-			<li id="C - Quick Guide"><a href="/cprogramming/c_quick_guide.htm">C - Quick Guide</a></li>
-			<li id="C - Useful Resources"><a href="/cprogramming/c_useful_resources.htm">C - Useful Resources</a></li>
-			<li id="C - Discussion"><a href="/cprogramming/cprogramming_discussion.htm">C - Discussion</a></li>
-
-			<a id="quiz" href="quiz.php"><li  class="h4 title">Quiz:</li></a>
+            <a id="quiz" href="quiz.php"><li  class="h4 title">Quiz:</li></a>
+            
+            <a id="quiz" href="problems.php"><li  class="h4 title">Problems:</li></a>
 		</ul>
 
 
@@ -137,19 +147,8 @@ include("rememberme.php");
 			<div class="navbar-collapse collapse" id="navCol">
 				<ul class="nav navbar-nav">
 					<!-- <li><a href="home.php">Home</a></li> -->
-					<li><a href="programming-tutorials-loged-in.php">Technology</a></li>
-                    <li><a href="algorithms-logged-in.php">Algorithm</a></li>
-                    
-                     <!-- DropDown Menu -->
-                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Courses
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">C++</a></li>
-                            <li><a href="#">Java</a></li>
-                            <li><a href="#">Python</a></li>
-                        </ul>
-                    </li>
+					<li><a href="programming-tutorials-loged-in.php">TECHNOLOGY</a></li>
+                    <li><a href="algorithms.php">ALGORITHM</a></li>
 
                     <li><a href="#CONTACT">CONTACT</a></li>
 
@@ -167,42 +166,19 @@ include("rememberme.php");
 					</div>
 				</form>
 
-				
-                <ul class="nav navbar-nav navbar-right">
-                    <li role="presentation">
-                        <a href="#"><span class="glyphicon glyphicon-bell"></span> Notifications<span class="badge">4</span></a>
+                            <ul class="nav navbar-nav navbar-right">
 
-                    </li>
-                    <li role="presentation">
-					<?php
-                                    include('connection.php');
+            <!-- Login Button  -->
+            <form class="nav navbar-form navbar-right">
+                <li><input class="btn btn-success " type="button" value="Login" data-target="#loginmodal" data-toggle="modal"></li>
 
-                                    $id= $_SESSION['user_id'];
-                                //    echo "Id is : " . $id;
-                                    $sql = "SELECT username FROM users WHERE user_id='$id'";
-                                    $result = mysqli_query($link, $sql); 
-                                    if(!$result){
-                                        echo '<div class="alert alert-danger">Error running the query!</div>';
-                                        exit;
-                                    }
-                                        //log the user in: Set session variables
+            </form>
+            <!-- Sign Up Button  -->
+            <form class="nav navbar-form navbar-right">
+                <li><input class="btn btn-info" type="button" value="Signup" data-target="#signupmodal" data-toggle="modal"></li>
+            </form>
 
-                                    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                                    $username=$row['username'];
-
-                                    echo ' <a href="profile.php"><span class="glyphicon glyphicon-user"></span> ' . $username . '</a>  ';
-
-                        ?>
-                    </li>
-
-
-                    <li><a href="home.php?logout=1">LogOut</a></li>
-
-                    <!-- <form class="navbar-form navbar-right">
-                        <input  class="btn btn-success " type="button" value="Logout" >
-                        
-                    </form> -->
-                </ul>
+            </ul>
 
 			</div>
 
@@ -212,15 +188,136 @@ include("rememberme.php");
 		</nav>
 
 
-		<button class="openbtn" onclick="openNav()">☰</button>
+		<button class="openbtn" onclick="openNav()"><i class="glyphicon glyphicon-indent-left"></i></button>
 
-		<div id="beforeCompiler">
+    
+    <div class="well">
 
-		</div>
+    <div style="margin-top:50px;padding:0px;height:auto;">
+  <h1 class="centered">Breadth First Search</h1>
+  
+  <div dir="ltr"><div class="centered">
+      <img  class="img-responsive  center-block"  alt="breadth first search demo" src="https://codeabbey.github.io/data/breadth_first_search_1.gif" /><br/>
+      <span class="hint">Breadth-First Search builds a short and divergent spanning tree</span>
+  </div>
+  
+  <p><strong>Breadth-First Search</strong> with its complement <a href="./dfs.html">Depth-First Search</a> are two popular methods of
+  searching in the graph.
+  They are building blocks for many other more special algorithms. At the same time each of them may be implemented in
+  several different ways.</p>
+  
+  <p>The words <strong>Breadth-First</strong> in the name reflect the manner of search - from any vertex we are trying to investigate all
+  neighbors as soon as possible. Because of this the search process looks as following:</p>
+  
+  <ol>
+  <li>at first we visit the initial node itself - let us call it <code>level 0</code>;</li>
+  <li>then we visit all nodes immediately reachable from the initial node - let us call them <code>level 1</code>;</li>
+  <li>on the next step we reach all nodes immediately reachable from level 1 and call them <code>level 2</code>.</li>
+  </ol>
+  
+  <p>And so on with the general rule that at level <code>K+1</code> we visit all neighbors of all nodes of level <code>K</code>, of course except
+  ones already visited on previous steps. At the picture above initial node is <code>A</code>, while the first level consists of
+  <code>B</code>, <code>C</code>, and <code>D</code> - and the second contains remaining <code>E</code>, <code>F</code> and <code>G</code>.</p>
+  
+  <p>The manner in which the algorithm visits vertices resembles the spreading of the wave when it floods the shore. Due to
+  this fact particular implementation of the <strong>BFS</strong> on a rectangular grid is sometimes called <strong>Wave Algorithm</strong> - see
+  the following picture to decide whether this name is correct:</p>
+  
+  <div class="centered">
+      <img alt="wave algorithm demo" class="img-responsive  center-block" src="https://codeabbey.github.io/data/breadth_first_search_2.gif"/><br/>
+      <span class="hint">Wave algorithm is just another incarnation of the BFS</span>
+  </div>
+  
+  <hr />
+  
+  <h3>Typical application</h3>
+  
+  <p>If the graph is connected, <strong>BFS</strong> will visit all of its nodes. If for each node we will remember where we got to it
+  from - then the resulting set of edges will represent a <strong>tree</strong> connecting all nodes (so-called <strong>spanning tree</strong>).</p>
+  
+  <p>The tree built by <strong>BFS</strong> at the same time represents the shortests paths from initial vertex to any other (for the
+  graph with the edges of equal weights - otherwise more special algorithm, like <a href="./dijkstra-in-the-network">Dijkstra</a>
+  should be used).</p>
+  
+  <p>The puzzle Word Ladders gives an example of a problem when <strong>BFS</strong> is most suitable.</p>
+  
+  <p>Other popular usage is for discovering if the graph is connected or consists of several izolated parts. It also allows
+  to mark which vertex belongs to which part. However this task could be by <strong>DFS</strong> also.</p>
+  
+  <h3>Algorithm implementation</h3>
+  
+  <p>Usually we prefer to use a <strong>Queue</strong> to keep the track of the nodes which we are going to visit soon.
+  This data structure provides two operations, let us call them <code>add</code> and <code>remove</code> for putting new elements to it and
+  fetching them later. The core property is that elements are removed in the same order in which they were stored - this
+  is often called <code>FIFO</code>, i.e. <strong>first in, first out</strong>. For example if you add elements to the end of the list and remove
+  them from the beginning - it will work as a queue.</p>
+  
+  <p>We also need some way to mark vertices as <code>seen</code> - it could be array of flags or set to which we will add ids of vertices
+  or something like this.</p>
+  
+  <p>That's how algorithm works:</p>
+  
+  <ol>
+  <li>We add the initial node to <code>queue</code> and mark it as <code>seen</code>.</li>
+  <li>Remove the next element from the <code>queue</code> and call it <code>current</code>.</li>
+  <li>Get all neighbors of the <code>current</code> node which are not yet marked as <code>seen</code>.</li>
+  <li>Store all these neighbors into the <code>queue</code> and mark them all as <code>seen</code>.</li>
+  <li>Repeat from the step <code>2</code> until the <code>queue</code> becomes empty.</li>
+  </ol>
+  
+  <p>Usually we perform some additional actions along with these core steps. For example:</p>
+  
+  <ul>
+  <li>after fetching each vertex from the <code>queue</code> we may print its name out - this will give us a list of the vertices
+  of the graph (or its connected component) in the order of visiting by <strong>BFS</strong>;</li>
+  <li>if using hashtable (aka dictionary) or array for <code>seen</code> we can store here not only the fact that the node was seen,
+  but also the id of the vertex from which it was seen - as the result the hashtable will describe the tree of
+  the shortest paths at the end;</li>
+  <li>distance to the given vertex from the initial one could be stored in a separate array or hashtable.</li>
+  </ul>
+  
+  <p>You also can read <a href="http://en.wikipedia.org/wiki/Breadth-first_search">wikipedia article</a> to get more clear idea.</p>
+  
+  <hr />
+  
+  <h3>Problem statement</h3>
 
-		<!-- <div class="container-fluid"> -->
+<p>You are given an undirected and unweighted graph with vertices identifided by integers.
+The goal is to run <strong>BFS</strong> over it as described above, <strong>starting from the node <code>0</code></strong>.</p>
 
-		<h3>Welcome to the C Programming</h3>
+<p>As output you should produce the <code>seen</code> array which shows where each vertex was visited from.</p>
+
+<p>To avoid ambiguosity please at the step <code>3</code> sort all fetched neighbors in order of increasing their id numbers.</p>
+
+<p><strong>Input data</strong> will contain the amount of nodes <code>N</code> and the amount of edges <code>M</code>.<br />
+Then <code>M</code> lines will follow each containing ids of two nodes connected by an edge. Node ids are integers between <code>0</code> and <code>N-1</code>.<br />
+<strong>Answer</strong> should contain the <code>seen</code> array as described above. It should have <code>-1</code> for the initial node.</p>
+
+<p>Example:</p>
+
+<pre><code>input data:
+7 10
+0 1
+2 0
+0 3
+1 4
+4 3
+2 3
+5 2
+6 3
+4 6
+6 5
+
+answer:
+-1 0 0 0 1 2 3
+</code></pre>
+
+<p><em>This example is from the picture above, only vertices are labeled with <code>0...6</code> instead of <code>A...F</code>.</em></p>
+</div>
+  
+</div>
+
+    </div>
 
 
 		<form id="form" name="f2" method="POST">
@@ -513,45 +610,6 @@ include("rememberme.php");
 
 		});
 
-		// fun = function(event, filename) {
-		// 	event.preventDefault();
-
-
-
-		// 	//	 var datatopost = $(this).serializeArray();
-		// 	//    console.log(datatopost);
-		// 	filename = filename + ".php";
-
-		// 	$.ajax({
-		// 		url: "c-home.php",
-		// 		type: "POST",
-		// 		//	data: datatopost,
-		// 		success: function(data) {
-		// 			if (data) {
-		// 				$("#beforeCompiler").html(data);
-		// 				//              window.alert(data);
-		// 			}
-		// 		},
-		// 		error: function() {
-		// 			$("#beforeCompiler").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
-		// 		}
-		// 	});
-
-		// 	//	$("#code").load("c.txt");
-
-		// }
-
-		// fun =  function(event,filename) {
-		// 	event.preventDefault();
-
-		// 	filename=filename+".php"
-		// 	$("#lesson").load(filename);  
-		// };
-
-
-		// $("#c-home").click(function(event) {
-		// 	fun(event, this);
-		// });
 	</script>
 
 
