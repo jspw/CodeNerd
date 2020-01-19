@@ -373,8 +373,8 @@ include("rememberme.php");
                 <!-- <div class=""> -->
                 <div class="thumbnaila face face1">
                     <div class="caption content">
-                        <img src="pc.png">
-                        <h3>Design</h3>
+                        <img src="download.jpg">
+                        <h3>ALGORITHM</h3>
                     </div>
                 </div>
                 <div class="thumbnaila face face2">
@@ -383,7 +383,7 @@ include("rememberme.php");
                             You've seen the craze for learning code. But what exactly is coding?
 
                         </p>
-                        <a href="#">Read More</a>
+                        <a href="./algo.html">Read More</a>
                     </div>
 
                 </div>
