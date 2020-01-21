@@ -37,7 +37,7 @@
 
       <select class="form-control" name="language">
         <option value="c">C</option>
-        <option value="cpp">C++</option>
+        <option value="cpp">Python3</option>
         <option value="cpp11">C++11</option>
         <option value="java">Java</option>
 
@@ -86,7 +86,7 @@ $(function() {
     //    console.log(datatopost);
 
         $.ajax({
-          url :"ccompiler.php",
+          url :"compile.php",
           type:"POST",
           data:datatopost,
           success:function(data){

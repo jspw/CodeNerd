@@ -1,10 +1,18 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['user_id'])){
-    header("location: algorithms.php");
+if(isset($_SESSION['user_id'])){
+    header("location: test-html-logged-in.php");
 }else{
-    include("connection.php");
+	include("connection.php");
+	
+	$sql = "SELECT * from languages ";
+	$result = mysqli_query($link,$sql);
+
+if(!$result){
+    echo '<div class="alert alert-danger">Error running the query!</div>';
+	exit;
+}
 
 //log Out
 
@@ -12,6 +20,7 @@ include("logout.php");
 
 //remember me
 include("rememberme.php");
+
 }
 
 ?>
@@ -31,7 +40,6 @@ include("rememberme.php");
 	<!-- custom css  -->
     <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="home.css">
-
 
 
 
@@ -65,30 +73,54 @@ include("rememberme.php");
 	<div id="mySidebar" class="sidebar">
 		<!-- <span href="javascript:void(0)" class="closebtn fas fa-arrow-left" onclick="closeNav()">x</span> -->
 		<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a> -->
-		<i href="javascript:void(0)" onclick="closeNav()" class=" closebtn fas fa-arrow-left" style="cursor: pointer ; margin-top: 30px"></i>
+		<i href="javascript:void(0)" onclick="closeNav()" class=" closebtn fas fa-arrow-left" style="cursor: pointer ; margin-top: 70px"></i>
 
 		<ul class="list-group">
-			<li class="h4 title">Graph Traversal:</li>
+			<li class="h4 title">HTML5 Tutorial:</li>
             
-            <li><a href="./bfs.php">Breadth First Search</a></li>
-            <li><a href="./dfs.php">Depth First Search</a></li>
+            <?php
 
-            <a id="quiz" href="quiz.php"><li  class="h4 title">Quiz:</li></a>
-            
-            <a id="quiz" href="problems.php"><li  class="h4 title">Problems:</li></a>
+                while($row = mysqli_fetch_array($result)){
+                    if($row['name']=='html5'){
+                        $username = $row['username']; 
+                        $id = $row['id']; 
+                        $header = $row['header']; 
+                        $beforecompiler = $row['beforeCompiler'];
+                        $afterCompiler = $row['afterCompiler']; 
+                        $code = $row['code']; 
+                        echo '
+                        <li><a id ='.$id.' href="#" onclick="load('.$id.')">HTML5-'.$header.'</a></li>
+                        ';
+                    }
+                    
+                }
+
+
+            ?>
+
+
+			<li class="h4 title">Useful Resources of HTML5:</li>
+
+
+			<li id="C - Questions &amp; Answers"><a href="/cprogramming/cprogramming_questions_answers.htm">C - Questions &amp; Answers</a></li>
+			<li id="C - Quick Guide"><a href="/cprogramming/c_quick_guide.htm">C - Quick Guide</a></li>
+			<li id="C - Useful Resources"><a href="/cprogramming/c_useful_resources.htm">C - Useful Resources</a></li>
+			<li id="C - Discussion"><a href="/cprogramming/cprogramming_discussion.htm">C - Discussion</a></li>
+
+			
+
+			<a id="quiz" href="quiz.php"><li  class="h4 title">Quiz:</li></a>
 		</ul>
 
 
 	</div>
 
 	<div id="main">
-
-
-		<nav class="navbar navbar-inverse " role="navigation">
-			<!-- <div class="container-fluid"> -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
 			<div class="navbar-header">
 				<!-- <button class="btn brandB"> -->
-				<a class="brandB" role="button" href="mainpageloggedin.php"><img class="img" src="codenerd.png" height="50" width="100"></a>
+				<a class="brandB" role="button" href="home.php"><img class="img" src="codenerd.png" height="50" width="100"></a>
 				<!-- </button> -->
 
 				<button type="button" class="navbar-toggle" data-target="#navCol" data-toggle="collapse">
@@ -104,8 +136,8 @@ include("rememberme.php");
 			<div class="navbar-collapse collapse" id="navCol">
 				<ul class="nav navbar-nav">
 					<!-- <li><a href="home.php">Home</a></li> -->
-					<li><a href="programming-tutorials-loged-in.php">TECHNOLOGY</a></li>
-                    <li><a href="algorithms-logged-in.php">ALGORITHM</a></li>
+					<li><a href="programming-tutorials.php">TECHNOLOGY</a></li>
+					<li><a href="algorithms.php">ALGORITHM</a></li>
 
 				</ul>
 
@@ -121,98 +153,73 @@ include("rememberme.php");
 					</div>
 				</form>
 
-				
-                <ul class="nav navbar-nav navbar-right">
-                    <li role="presentation">
-                        <a href="#"><span class="glyphicon glyphicon-bell"></span> Notifications<span class="badge">4</span></a>
+				<ul class="nav navbar-nav navbar-right">
 
-                    </li>
-                    <li role="presentation">
-					<?php
-                                    include('connection.php');
+					<!-- Login Button  -->
+					<form class="navbar-form navbar-right">
+						<li><input class="btn btn-success " type="button" value="Login" data-target="#loginmodal" data-toggle="modal"></li>
 
-                                    $id= $_SESSION['user_id'];
-                                //    echo "Id is : " . $id;
-                                    $sql = "SELECT username FROM users WHERE user_id='$id'";
-                                    $result = mysqli_query($link, $sql); 
-                                    if(!$result){
-                                        echo '<div class="alert alert-danger">Error running the query!</div>';
-                                        exit;
-                                    }
-                                        //log the user in: Set session variables
+					</form>
+					<!-- Sign Up Button  -->
+					<form class="navbar-form navbar-right">
+						<li><input class="btn btn-info" type="button" value="Signup" data-target="#signupmodal" data-toggle="modal"></li>
+					</form>
 
-                                    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                                    $username=$row['username'];
-
-                                    echo ' <a href="profile.php"><span class="glyphicon glyphicon-user"></span> ' . $username . '</a>  ';
-
-                        ?>
-                    </li>
+				</ul>
 
 
-                    <li><a href="home.php?logout=1">LogOut</a></li>
-
-                    <!-- <form class="navbar-form navbar-right">
-                        <input  class="btn btn-success " type="button" value="Logout" >
-                        
-                    </form> -->
-                </ul>
-
+            </div>
 			</div>
 
-			<!-- </div> -->
 
 
-		</nav>
+        </nav>
+        
 
-
-		<button class="openbtn" onclick="openNav()">☰</button>
+		<button style="margin-top: 70px" class="openbtn" onclick="openNav()">☰</button>
 
 		<div id="beforeCompiler">
 
 		</div>
 
-		<!-- <div class="container-fluid"> -->
 
-		<h3>Welcome to Algorithms</h3>
+                <!-- html text editor -->
+    <div class="row">
 
+        <div class="col-lg-6">
+            <form id="submitform" class="form" method="POST">
 
-		<form id="form" name="f2" method="POST">
-			<label for="lang">Choose Language</label>
+                <label style="font-size: 20px">Write your HTML code here:</label>
+                <p id="preview1" class="btn btn-success pull-right">Run</p><br><br>
+                <textarea id="beforecompiler" name="beforecompiler" class="form-control" id="beforecompiler" rows="25" style="min-height: 95%;border-radius:5px"></textarea>
 
-			<select class="form-control" name="language">
-				<option value="c">C</option>
-				<option value="Python3">Python3</option>
-				<option value="cpp11">C++11</option>
-				<option value="java">Java</option>
+            </form>
 
-
-			</select><br><br>
-			<label class="label label-primary" style="font-size: 15px">Source Code:</label><br><br>
-			<textarea id="code" class="form-control z-depth-1" name="code" rows="15"></textarea><br><br>
-
-			<label class="label label-warning" style="font-size: 15px">Input:</label>
-			<br><br>
-			<textarea class="form-control z-depth-1" name="input" rows="5"></textarea><br><br>
-
-			<button type="submit" id="st" class="btn btn-success" style="margin-bottom: 10px"><span class="glyphicon glyphicon-play"></span> Run Code</button>
+        </div>
 
 
+        <div id="preview" class="col-lg-6">
+            <label style="font-size: 20px">Preview:</label><br><br>
+
+            <div class="well" style="min-height: 100%;border-radius:0px">
+                <div id="article1">
+
+                </div>
+
+            </div>
 
 
-		</form>
+        </div>
+
+
+
+    </div>
 
 		<div id="info">
 
-		</div>
-		<!-- </div> -->
 
-		<div id="afterCompiler">
-
-		</div>
-
-
-	</div>
+        </div>
+    
 
 
     <div>
@@ -418,8 +425,8 @@ include("rememberme.php");
 
 	<script>
 		function openNav() {
-			document.getElementById("mySidebar").style.width = "200px";
-			document.getElementById("main").style.marginLeft = "200px";
+			document.getElementById("mySidebar").style.width = "300px";
+			document.getElementById("main").style.marginLeft = "300px";
 		}
 
 		function closeNav() {
@@ -428,87 +435,93 @@ include("rememberme.php");
 		}
 	</script>
 
-	<!-- <script>
-		$(function() {
-			$(".lined").linedtextarea({
-				selectedLine: 1
-			});
-		});
-	</script> -->
-
-	
-
-
 	<script>
-		//wait for page load to initialize script
-		//listen for form submission
-		$("#form").submit(function(event) {
-			event.preventDefault();
+        
+              ///preview
+
+      $("#preview1").click(function(event){
+          event.preventDefault();
+        //  window.alert("FUCK");
+        var data = document.getElementById("beforecompiler").value;
+        
+
+        //delete the fucking class
+
+        // while(data.match(/class="/g)){
+        // var start = data.search("class=\"");
+        // console.log(start);
+        // for(i=start+7;i<data.length;i++){
+        //     if(data[i]=="\"")
+        //         {
+        //             end=i;
+        //             console.log(end);
+        //             break;
+        //         }
+        // }
+        // var str = data.substr(start,end-start+1);
+        // console.log(str);
+        // data=data.replace(str,"");
+
+        // console.log(data);
+
+        // }
+
+        //filtering
+
+        data= data.replace(/\=/g,"equalx");
+        data= data.replace(/\[/g,"br31");
+        data= data.replace(/\]/g,"br32");
+    //    data= data.replace(/\{}/g,"br2");
+    //    data= data.replace(/\()/g,"br1");
 
 
 
-			var datatopost = $(this).serializeArray();
-			//    console.log(datatopost);
 
-			$.ajax({
-				url: "ccompiler.php",
-				type: "POST",
-				data: datatopost,
+        $.ajax({
+          url :"preview.php",
+          type:"POST",
+          cache: false,
+          dataType:"html",
+          data:data,
+          success:function(data){
+            if(data){
+              $("#article1").html(data);
+//              window.alert(data);
+            }
+          },
+          error:function(){
+            $("#article1").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
+          }
+        });
+
+      });
+
+        var load = function(data){
+        //    console.log("bal"+data);
+        $(this).click(function (event) { 
+   //         event.preventDefault();
+         });
+        
+            $.ajax({
+				url: "load.php",
+                type: "POST",
+                data:{
+                    data1:data
+                },
 				success: function(data) {
 					if (data) {
-						$("#info").html(data);
+						$("#beforeCompiler").html(data);
 						//              window.alert(data);
 					}
 				},
 				error: function() {
-					$("#info").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
+					$("#beforeCompiler").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
 				}
-			});
+            });
 
-		});
-
-		// fun = function(event, filename) {
-		// 	event.preventDefault();
-
-
-
-		// 	//	 var datatopost = $(this).serializeArray();
-		// 	//    console.log(datatopost);
-		// 	filename = filename + ".php";
-
-		// 	$.ajax({
-		// 		url: "c-home.php",
-		// 		type: "POST",
-		// 		//	data: datatopost,
-		// 		success: function(data) {
-		// 			if (data) {
-		// 				$("#beforeCompiler").html(data);
-		// 				//              window.alert(data);
-		// 			}
-		// 		},
-		// 		error: function() {
-		// 			$("#beforeCompiler").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
-		// 		}
-		// 	});
-
-		// 	//	$("#code").load("c.txt");
-
-		// }
-
-		// fun =  function(event,filename) {
-		// 	event.preventDefault();
-
-		// 	filename=filename+".php"
-		// 	$("#lesson").load(filename);  
-		// };
-
-
-		// $("#c-home").click(function(event) {
-		// 	fun(event, this);
-		// });
+        } ;
+            
 	</script>
-
-
 
 </body>
 

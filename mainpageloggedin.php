@@ -45,18 +45,6 @@ if(!isset($_SESSION['user_id'])){
                     <li><a href="algorithms-logged-in.php">ALGORITHM</a></li>
                     
 
-
-                        <!-- DropDown Menu -->
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Courses
-                        <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">C++</a></li>
-                          <li><a href="#">Java</a></li>
-                          <li><a href="#">Python</a></li>
-                        </ul>
-                      </li>
-
                       <li><a href="#CONTACT">CONTACT</a></li>
 
                 </ul>
@@ -186,7 +174,7 @@ if(!isset($_SESSION['user_id'])){
                             You've seen the craze for learning code. But what exactly is coding?
 
                         </p>
-                        <a class="center" href="#">Read More</a>
+                        <a class="center" href="test-python-logged-in.php">Read More</a>
                     </div>
 
                 </div>
@@ -276,7 +264,7 @@ if(!isset($_SESSION['user_id'])){
                 <div class="col-lg-4">
                     <div class="col-lg-4" style="height: 270px;background-image:linear-gradient(to bottom, #FEC63B, #F19C1B);border-radius:10px">
                         <div class="modal-header">
-                            <p class="text-center"><button class="btn btn-default btn-lg" style="border-radius: 10px;padding:0px 25px 0px 25px">Vue</button></p>
+                            <p class="text-center"><button class="btn btn-default center-block" style="border-radius: 10px;">Vue</button></p>
                         </div>
                         <div class="modal-body">
                             <p class="text-center"><img src="vue.png"></p>
@@ -308,11 +296,11 @@ if(!isset($_SESSION['user_id'])){
                     </div>
                 </div>
             </a>
-            <a id="trigger2" href="#" onmouseover="show2()">
+            <a id="trigger2" href="test-html-logged-in.php" onmouseover="show2()">
                 <div class="col-lg-4">
                     <div class="col-lg-4" style="height: 270px;background-image:linear-gradient(to bottom, #23C6F7, #518FFC);border-radius:10px">
                         <div class="modal-header">
-                            <p class="text-center"><button class="btn btn-default" style="border-radius: 10px;padding:0px 6px 0px 6px;font-size:25">Code Katas</button></p>
+                            <p class="text-center"><button class="btn btn-default center-block" style="border-radius: 10px;">Katas</button></p>
                         </div>
                         <div class="modal-body">
                             <p class="text-center"><img src="code-katas-in-php.webp" width="60px" height="60px"></p>
@@ -349,7 +337,7 @@ if(!isset($_SESSION['user_id'])){
                 <div class="col-lg-4">
                     <div class="col-lg-4" style="height: 270px;background-image:linear-gradient(to bottom, #6BDBC2, #30B89A);border-radius:10px">
                         <div class="modal-header">
-                            <p class="text-center"><button class="btn btn-default btn-lg" style="border-radius: 10px;padding:0px 15px 0px 15px">Laravel</button></p>
+                            <p class="text-center"><button class="btn btn-default center-block" style="border-radius: 10px;">Laravel</button></p>
                         </div>
                         <div class="modal-body">
                             <p class="text-center"><img src="laravel-6-from-scratch.webp" width="60px" height="60px"></p>
@@ -387,14 +375,14 @@ if(!isset($_SESSION['user_id'])){
         <!-- 2nd part of extra tech -->
 
         <div class="row" style="margin-top:50px">
-            <a id="trigger4" href="#" onmouseover="show4()">
+            <a id="trigger4" href="test-html-logged-in.php" onmouseover="show4()">
                 <div class="col-lg-4">
                     <div class="col-lg-4" style="height: 270px;background-image:linear-gradient(to bottom, #F4487F, #EE465B);border-radius:10px">
-                        <div class="modal-header">
-                            <p class="text-center"><button class="btn btn-default btn-lg" style="border-radius: 10px;padding:0px 25px 0px 25px">Vue</button></p>
+                        <div class="modal-header text-center">
+                            <p class="text-center"><button class="btn btn-default center-block" style="border-radius: 10px;">HTML5</button></p>
                         </div>
                         <div class="modal-body">
-                            <p class="text-center"><img src="vue.png"></p>
+                            <p class="text-center"><img src="html5.png"></p>
                         </div>
                         <div class="modal-footer">
                             <p class="text-center">
@@ -427,7 +415,7 @@ if(!isset($_SESSION['user_id'])){
                 <div class="col-lg-4">
                     <div class="col-lg-4" style="height: 270px;background-color:#FBBA32;border-radius:10px">
                         <div class="modal-header">
-                            <p class="text-center"><button class="btn btn-default btn-lg" style="border-radius: 10px;padding:0px 25px 0px 25px">Vue</button></p>
+                            <p class="text-center"><button class="btn btn-default center-block" style="border-radius: 10px;">Vue</button></p>
                         </div>
                         <div class="modal-body">
                             <p class="text-center"><img src="vue.png"></p>
@@ -463,7 +451,7 @@ if(!isset($_SESSION['user_id'])){
                 <div class="col-lg-4">
                     <div class="col-lg-4" style="height: 270px;background-color:#FBBA32;border-radius:10px">
                         <div class="modal-header">
-                            <p class="text-center"><button class="btn btn-default btn-lg" style="border-radius: 10px;padding:0px 25px 0px 25px">Vue</button></p>
+                            <p class="text-center"><button class="btn btn-default center-block" style="border-radius: 10px;">Vue</button></p>
                         </div>
                         <div class="modal-body">
                             <p class="text-center"><img src="vue.png"></p>
@@ -643,16 +631,6 @@ $(document).ready(function(){
     } // End if
   });
   
-//   $(window).scroll(function() {
-//     $(".slideanim").each(function(){
-//       var pos = $(this).offset().top;
-
-//       var winTop = $(window).scrollTop();
-//         if (pos < winTop + 600) {
-//           $(this).addClass("slide");
-//         }
-//     });
-//   });
 })
 </script>
 

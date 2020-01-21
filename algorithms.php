@@ -30,6 +30,8 @@ include("rememberme.php");
 
 	<!-- custom css  -->
 	<link rel="stylesheet" href="sidebar.css">
+	<link rel="stylesheet" href="home.css">
+
 
 
 
@@ -105,8 +107,6 @@ include("rememberme.php");
 					<li><a href="programming-tutorials-loged-in.php">TECHNOLOGY</a></li>
                     <li><a href="algorithms.php">ALGORITHM</a></li>
 
-                    <li><a href="#CONTACT">CONTACT</a></li>
-
 				</ul>
 
 				<form class="navbar-form navbar-left" role="search" method="POST">
@@ -159,7 +159,7 @@ include("rememberme.php");
 
 			<select class="form-control" name="language">
 				<option value="c">C</option>
-				<option value="cpp">C++</option>
+				<option value="Python3">Python3</option>
 				<option value="cpp11">C++11</option>
 				<option value="java">Java</option>
 

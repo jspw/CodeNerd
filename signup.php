@@ -124,7 +124,7 @@ $message .= "http://localhost/phptest/CodeNerd/activate.php?email=" . urlencode(
 if(mail($email, 'Confirm your Registration', $message, 'From:'.'codenerd@gmail.com')){
        echo "<div class='alert alert-success'>Thank for your registring! A confirmation email has been sent to $email. Please click on the activation link to activate your account.</div>";
 
-       echo $message;
+    /   echo $message;
 }
 
 

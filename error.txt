@@ -1,0 +1,3 @@
+main.c:1:7: error: expected declaration specifiers or '...' before string constant
+ print("Hello")
+       ^~~~~~~

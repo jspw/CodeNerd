@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['user_id'])){
-    header("location: home.php");
+    header("location: programming-tutorials.php");
 }
 ?>
 
@@ -44,18 +44,6 @@ if(!isset($_SESSION['user_id'])){
                     <li><a href="#TECHNOLOGY">Technology</a></li>
                     <li><a href="algorithms-logged-in.php">ALGORITHM</a></li>
 
-
-
-                    <!-- DropDown Menu -->
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Courses
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">C++</a></li>
-                            <li><a href="#">Java</a></li>
-                            <li><a href="#">Python</a></li>
-                        </ul>
-                    </li>
 
                     <li><a href="#CONTACT">CONTACT</a></li>
 
@@ -143,7 +131,7 @@ if(!isset($_SESSION['user_id'])){
                             </idv>
                         </div>
                     </a>
-                    <a href="test-logged-in.php">
+                    <a href="test-python-logged-in.php">
                         <div data-link="#" class="col-sm-3 tech" style="border:1px solid black;background-color:#21252D;height:200px">
 
                             <idv class="row" style="cursor:pointer">
@@ -156,7 +144,7 @@ if(!isset($_SESSION['user_id'])){
                             </idv>
                         </div>
                     </a>
-                    <a href="test-logged-in.php">
+                    <a href="#">
                         <div data-link="#" class="col-sm-3 tech" style="border:1px solid black;background-color:#21252D;height:200px">
 
                             <div class="row" style="cursor:pointer">

@@ -1,8 +1,4 @@
-
-
 //Ajax call for signup form
-
-
 $("#signupform").submit(function(event){ 
    
     event.preventDefault();   //prevent default php processing
@@ -46,7 +42,7 @@ $("#loginform").submit(function(event){
         success: function(data){
             if(data == "success"){
                 location.reload();
-             //   window.location = "mainpageloggedin.php";
+              //  window.location = "home.php";
             }else{
                 $('#loginmessage').html(data);   
             }
@@ -94,8 +90,9 @@ $("#contactform").submit(function(event){
     event.preventDefault();
 
     var datatopost = $(this).serializeArray();
-   // console.log(datatopost);
-//    console.log(datatopost);
+    console.log("Hello");
+
+    console.log(datatopost);
     //send them to signup.php using AJAX
     $.ajax({
         url: "contact.php",
@@ -112,4 +109,3 @@ $("#contactform").submit(function(event){
     
     });
 });
-

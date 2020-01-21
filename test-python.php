@@ -1,10 +1,18 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['user_id'])){
-    header("location: algorithms.php");
+if(isset($_SESSION['user_id'])){
+    header("location: test-python-logged-in.php");
 }else{
-    include("connection.php");
+	include("connection.php");
+	
+	$sql = "SELECT * from languages ";
+	$result = mysqli_query($link,$sql);
+
+if(!$result){
+    echo '<div class="alert alert-danger">Error running the query!</div>';
+	exit;
+}
 
 //log Out
 
@@ -12,6 +20,7 @@ include("logout.php");
 
 //remember me
 include("rememberme.php");
+
 }
 
 ?>
@@ -31,7 +40,6 @@ include("rememberme.php");
 	<!-- custom css  -->
     <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="home.css">
-
 
 
 
@@ -65,17 +73,43 @@ include("rememberme.php");
 	<div id="mySidebar" class="sidebar">
 		<!-- <span href="javascript:void(0)" class="closebtn fas fa-arrow-left" onclick="closeNav()">x</span> -->
 		<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a> -->
-		<i href="javascript:void(0)" onclick="closeNav()" class=" closebtn fas fa-arrow-left" style="cursor: pointer ; margin-top: 30px"></i>
+		<i href="javascript:void(0)" onclick="closeNav()" class=" closebtn fas fa-arrow-left" style="cursor: pointer ; margin-top: 70px"></i>
 
 		<ul class="list-group">
-			<li class="h4 title">Graph Traversal:</li>
+			<li class="h4 title">Python Tutorial:</li>
             
-            <li><a href="./bfs.php">Breadth First Search</a></li>
-            <li><a href="./dfs.php">Depth First Search</a></li>
+            <?php
 
-            <a id="quiz" href="quiz.php"><li  class="h4 title">Quiz:</li></a>
-            
-            <a id="quiz" href="problems.php"><li  class="h4 title">Problems:</li></a>
+                while($row = mysqli_fetch_array($result)){
+                    if($row['name']=='Python3'){
+                        $username = $row['username']; 
+                        $id = $row['id']; 
+                        $header = $row['header']; 
+                        $beforecompiler = $row['beforeCompiler'];
+                        $afterCompiler = $row['afterCompiler']; 
+                        $code = $row['code']; 
+                        echo '
+                        <li><a id ='.$id.' href="#" onclick="load('.$id.')">Python-'.$header.'</a></li>
+                        ';
+                    }
+                    
+                }
+
+
+            ?>
+
+
+			<li class="h4 title">Useful Resources of Python:</li>
+
+
+			<li id="C - Questions &amp; Answers"><a href="/cprogramming/cprogramming_questions_answers.htm">C - Questions &amp; Answers</a></li>
+			<li id="C - Quick Guide"><a href="/cprogramming/c_quick_guide.htm">C - Quick Guide</a></li>
+			<li id="C - Useful Resources"><a href="/cprogramming/c_useful_resources.htm">C - Useful Resources</a></li>
+			<li id="C - Discussion"><a href="/cprogramming/cprogramming_discussion.htm">C - Discussion</a></li>
+
+			
+
+			<a id="quiz" href="quiz.php"><li  class="h4 title">Quiz:</li></a>
 		</ul>
 
 
@@ -84,11 +118,11 @@ include("rememberme.php");
 	<div id="main">
 
 
-		<nav class="navbar navbar-inverse " role="navigation">
-			<!-- <div class="container-fluid"> -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
 			<div class="navbar-header">
 				<!-- <button class="btn brandB"> -->
-				<a class="brandB" role="button" href="mainpageloggedin.php"><img class="img" src="codenerd.png" height="50" width="100"></a>
+				<a class="brandB" role="button" href="home.php"><img class="img" src="codenerd.png" height="50" width="100"></a>
 				<!-- </button> -->
 
 				<button type="button" class="navbar-toggle" data-target="#navCol" data-toggle="collapse">
@@ -104,8 +138,8 @@ include("rememberme.php");
 			<div class="navbar-collapse collapse" id="navCol">
 				<ul class="nav navbar-nav">
 					<!-- <li><a href="home.php">Home</a></li> -->
-					<li><a href="programming-tutorials-loged-in.php">TECHNOLOGY</a></li>
-                    <li><a href="algorithms-logged-in.php">ALGORITHM</a></li>
+					<li><a href="programming-tutorials.php">TECHNOLOGY</a></li>
+					<li><a href="algorithms.php">ALGORITHM</a></li>
 
 				</ul>
 
@@ -121,52 +155,30 @@ include("rememberme.php");
 					</div>
 				</form>
 
-				
-                <ul class="nav navbar-nav navbar-right">
-                    <li role="presentation">
-                        <a href="#"><span class="glyphicon glyphicon-bell"></span> Notifications<span class="badge">4</span></a>
+				<ul class="nav navbar-nav navbar-right">
 
-                    </li>
-                    <li role="presentation">
-					<?php
-                                    include('connection.php');
+					<!-- Login Button  -->
+					<form class="navbar-form navbar-right">
+						<li><input class="btn btn-success " type="button" value="Login" data-target="#loginmodal" data-toggle="modal"></li>
 
-                                    $id= $_SESSION['user_id'];
-                                //    echo "Id is : " . $id;
-                                    $sql = "SELECT username FROM users WHERE user_id='$id'";
-                                    $result = mysqli_query($link, $sql); 
-                                    if(!$result){
-                                        echo '<div class="alert alert-danger">Error running the query!</div>';
-                                        exit;
-                                    }
-                                        //log the user in: Set session variables
+					</form>
+					<!-- Sign Up Button  -->
+					<form class="navbar-form navbar-right">
+						<li><input class="btn btn-info" type="button" value="Signup" data-target="#signupmodal" data-toggle="modal"></li>
+					</form>
 
-                                    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                                    $username=$row['username'];
+				</ul>
 
-                                    echo ' <a href="profile.php"><span class="glyphicon glyphicon-user"></span> ' . $username . '</a>  ';
-
-                        ?>
-                    </li>
-
-
-                    <li><a href="home.php?logout=1">LogOut</a></li>
-
-                    <!-- <form class="navbar-form navbar-right">
-                        <input  class="btn btn-success " type="button" value="Logout" >
-                        
-                    </form> -->
-                </ul>
 
 			</div>
 
-			<!-- </div> -->
+			</div>
 
 
 		</nav>
 
 
-		<button class="openbtn" onclick="openNav()">☰</button>
+		<button style="margin-left: 0px;margin-top:60px" class="openbtn" onclick="openNav()">☰</button>
 
 		<div id="beforeCompiler">
 
@@ -174,7 +186,7 @@ include("rememberme.php");
 
 		<!-- <div class="container-fluid"> -->
 
-		<h3>Welcome to Algorithms</h3>
+		<h3>Welcome to the Python Programming</h3>
 
 
 		<form id="form" name="f2" method="POST">
@@ -183,7 +195,7 @@ include("rememberme.php");
 			<select class="form-control" name="language">
 				<option value="c">C</option>
 				<option value="Python3">Python3</option>
-				<option value="cpp11">C++11</option>
+				<option value="cpp11">Bash Shell</option>
 				<option value="java">Java</option>
 
 
@@ -205,8 +217,6 @@ include("rememberme.php");
 		<div id="info">
 
 		</div>
-		<!-- </div> -->
-
 		<div id="afterCompiler">
 
 		</div>
@@ -418,8 +428,8 @@ include("rememberme.php");
 
 	<script>
 		function openNav() {
-			document.getElementById("mySidebar").style.width = "200px";
-			document.getElementById("main").style.marginLeft = "200px";
+			document.getElementById("mySidebar").style.width = "300px";
+			document.getElementById("main").style.marginLeft = "300px";
 		}
 
 		function closeNav() {
@@ -427,16 +437,6 @@ include("rememberme.php");
 			document.getElementById("main").style.marginLeft = "0";
 		}
 	</script>
-
-	<!-- <script>
-		$(function() {
-			$(".lined").linedtextarea({
-				selectedLine: 1
-			});
-		});
-	</script> -->
-
-	
 
 
 	<script>
@@ -451,7 +451,7 @@ include("rememberme.php");
 			//    console.log(datatopost);
 
 			$.ajax({
-				url: "ccompiler.php",
+				url: "compile.php",
 				type: "POST",
 				data: datatopost,
 				success: function(data) {
@@ -463,49 +463,36 @@ include("rememberme.php");
 				error: function() {
 					$("#info").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
 				}
-			});
+            });
 
-		});
+        });
 
-		// fun = function(event, filename) {
-		// 	event.preventDefault();
+        var load = function(data){
+        //    console.log("bal"+data);
+        $(this).click(function (event) { 
+   //         event.preventDefault();
+         });
+        
+            $.ajax({
+				url: "load.php",
+                type: "POST",
+                data:{
+                    data1:data
+                },
+				success: function(data) {
+					if (data) {
+						$("#beforeCompiler").html(data);
+						//              window.alert(data);
+					}
+				},
+				error: function() {
+					$("#beforeCompiler").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
+				}
+            });
 
+        } ;
+            
 
-
-		// 	//	 var datatopost = $(this).serializeArray();
-		// 	//    console.log(datatopost);
-		// 	filename = filename + ".php";
-
-		// 	$.ajax({
-		// 		url: "c-home.php",
-		// 		type: "POST",
-		// 		//	data: datatopost,
-		// 		success: function(data) {
-		// 			if (data) {
-		// 				$("#beforeCompiler").html(data);
-		// 				//              window.alert(data);
-		// 			}
-		// 		},
-		// 		error: function() {
-		// 			$("#beforeCompiler").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
-		// 		}
-		// 	});
-
-		// 	//	$("#code").load("c.txt");
-
-		// }
-
-		// fun =  function(event,filename) {
-		// 	event.preventDefault();
-
-		// 	filename=filename+".php"
-		// 	$("#lesson").load(filename);  
-		// };
-
-
-		// $("#c-home").click(function(event) {
-		// 	fun(event, this);
-		// });
 	</script>
 
 

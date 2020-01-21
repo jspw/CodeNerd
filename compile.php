@@ -34,9 +34,9 @@
 					include("compilers/python27.php");
 					break;
 				}
-				case "python3.2":
+				case "Python3":
 				{
-					include("compilers/python32.php");
+					include("pythoncompiler.php");
 					break;
 				}
 			}

@@ -20,7 +20,7 @@ if (isset($_POST["submit"])) {
     //geting user input
     $name = $_POST["name"];
     $email = $_POST["email"];
-    $message = $_POST["comments"];
+    $message = $_POST["message"];
 
 
     //check for errors
@@ -73,7 +73,8 @@ if (isset($_POST["submit"])) {
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
         if (mail($to, $subject, $message, $headers)) {
-            header("location:thanks.html");
+            
+            echo '<div class="alert alert-success">Thanks for your support !</div>';
         } else {
             $resultMessage = '<div class="alert alert-warning">Unable to send Email.</div>';
         }

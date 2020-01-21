@@ -87,12 +87,6 @@ $currentcourse = $row['currentcourse'];
                     <li><a href="programming-tutorials-loged-in.php">TECHNOLOGY</a></li>
                     <li><a href="algorithms-logged-in.php">ALGORITHM</a></li>
 
-
-
-
-
-                    <li><a href="#CONTACT">CONTACT</a></li>
-
                 </ul>
 
                 <form class="navbar-form navbar-left " role="search" method="POST">
@@ -132,7 +126,7 @@ $currentcourse = $row['currentcourse'];
                             <li role="presentation" class="divider"></li>
                             <li role="presentation" class="list"><a href="home.php?logout=1" style="text-align:center"><strong>Log Out</strong></a></li>
                             <li role="presentation" class="divider"></li>
-                            <li role="presentation" class="list"><a href="teachers.php" style="text-align:center"><strong>Teach On CodeNerd</strong></a></li>
+                            <li role="presentation" class="list"><a href="http://localhost/phptest/CodenerdTecaher/homet.php" style="text-align:center" target="_blank"><strong>Teach On CodeNerd</strong></a></li>
                         </ul>
                     </li>
 
@@ -145,7 +139,7 @@ $currentcourse = $row['currentcourse'];
 
     <div class="container-fluid" style="margin-top: 50px">
         <div class="row">
-            <div class="col-sm-8 col-md-8 col-lg-4" style="background-color: #ffff">
+            <div class="col-sm-8 col-md-8 col-lg-4" style="background-color: #F3F7F7">
                 <div style="margin-left:20px;margin-top:20px;padding:20px">
                     <div style="border: 2px solid #E1E4E8;border-radius:10px ; padding:5px">
                         <img src="pc.png" class="img-responsive img-thumbnail">

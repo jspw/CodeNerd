@@ -296,27 +296,27 @@
                     <a href="test.php">
                         <div data-link="#" class="col-sm-3 tech" style="border:1px solid black;background-color:#21252D;height:200px">
 
-                            <idv class="row" style="cursor:pointer">
+                            <div class="row" style="cursor:pointer">
                                 <div class="col-sm-6 ">
                                     <h3>C</h3>
                                 </div>
                                 <div class="col-sm-6 ">
                                     <img src="c.png" width="100px" height="100px">
                                 </div>
-                            </idv>
+                            </div>
                         </div>
                     </a>
-                    <a href="test.php">
+                    <a href="test-python.php">
                         <div data-link="#" class="col-sm-3 tech" style="border:1px solid black;background-color:#21252D;height:200px">
 
-                            <idv class="row" style="cursor:pointer">
+                            <div class="row" style="cursor:pointer">
                                 <div class="col-sm-6 ">
                                     <h3>Python</h3>
                                 </div>
                                 <div class="col-sm-6 ">
                                     <img src="python.png" width="100px" height="100px">
                                 </div>
-                            </idv>
+                            </div>
                         </div>
                     </a>
                     <a href="test.php">

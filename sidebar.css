@@ -1,7 +1,4 @@
-body {
-    font-family: "Lato", sans-serif;
-  }
-  
+
   .sidebar {
     height: 100%;
     width: 0;
@@ -59,7 +56,7 @@ body {
   
   #main {
     transition: margin-left 1s;
-    padding: 16px;
+    /* padding: 16px; */
   }
   
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */

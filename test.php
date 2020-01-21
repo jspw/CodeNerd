@@ -1,9 +1,17 @@
 <?php
 session_start();
-include("connection.php");
 
 if(isset($_SESSION['user_id'])){
-    header("location: test-logged-in.php");
+	header("location: test-logged-in.php");
+}else{
+	include("connection.php");
+	
+	$sql = "SELECT * from languages ";
+	$result = mysqli_query($link,$sql);
+
+if(!$result){
+    echo '<div class="alert alert-danger">Error running the query!</div>';
+	exit;
 }
 
 //log Out
@@ -12,7 +20,11 @@ include("logout.php");
 
 //remember me
 include("rememberme.php");
+
+}
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +39,7 @@ include("rememberme.php");
 
 	<!-- custom css  -->
 	<link rel="stylesheet" href="sidebar.css">
+	<link rel="stylesheet" href="home.css">
 
 
 
@@ -60,43 +73,32 @@ include("rememberme.php");
 	<div id="mySidebar" class="sidebar">
 		<!-- <span href="javascript:void(0)" class="closebtn fas fa-arrow-left" onclick="closeNav()">x</span> -->
 		<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a> -->
-		<i href="javascript:void(0)" onclick="closeNav()" class=" closebtn fas fa-arrow-left" style="cursor: pointer ; margin-top: 30px"></i>
+		<i href="javascript:void(0)" onclick="closeNav()" class=" closebtn fas fa-arrow-left" style="cursor: pointer ; margin-top: 70px"></i>
 
 		<ul class="list-group">
 			<li class="h4 title">C Programming Tutorial:</li>
-			<li id="C-Home"><a href="#">C - Home</a></li>
-			<!-- <li><a id="" href="/cprogramming/c_overview.htm">C - Overview</a></li> -->
-			<li id="C-Environment-Setup"><a href="#">C - Environment Setup</a></li>
-			<li id="C-Program-Structure"><a href="/cprogramming/c_program_structure.htm">C - Program Structure</a></li>
-			<li id="C-Basic-Syntax"><a href="/cprogramming/c_basic_syntax.htm">C - Basic Syntax</a></li>
-			<li id="C-Data-Types"><a href="/cprogramming/c_data_types.htm">C - Data Types</a></li>
-			<li id="C-Variables"><a href="/cprogramming/c_variables.htm">C - Variables</a></li>
-			<li id="C-Constants-and-Literals"><a href="/cprogramming/c_constants.htm">C - Constants</a></li>
-			<li id="C-Storage-Classes"><a href="/cprogramming/c_storage_classes.htm">C - Storage Classes</a></li>
-			<li id="C - Operators"><a href="/cprogramming/c_operators.htm">C - Operators</a></li>
-			<li id="C - Decision Making"><a href="/cprogramming/c_decision_making.htm">C - Decision Making</a></li>
-			<li id="C-Loops"><a href="/cprogramming/c_loops.htm">C - Loops</a></li>
-			<li id="C-Functions"><a href="/cprogramming/c_functions.htm">C - Functions</a></li>
-			<li id="C - Scope Rules"><a href="/cprogramming/c_scope_rules.htm">C - Scope Rules</a></li>
-			<li id="C - Arrays"><a href="/cprogramming/c_arrays.htm">C - Arrays</a></li>
-			<li id="C - Pointers"><a href="/cprogramming/c_pointers.htm">C - Pointers</a></li>
-			<li id="C - Strings"><a href="/cprogramming/c_strings.htm">C - Strings</a></li>
-			<li id="C - Structures"><a href="/cprogramming/c_structures.htm">C - Structures</a></li>
-			<li id="C - Unions"><a href="/cprogramming/c_unions.htm">C - Unions</a></li>
-			<li id="C - Bit Fields"><a href="/cprogramming/c_bit_fields.htm">C - Bit Fields</a></li>
-			<li id="C - Typedef"><a href="/cprogramming/c_typedef.htm">C - Typedef</a></li>
-			<li id="C - Input &amp; Output"><a href="/cprogramming/c_input_output.htm">C - Input &amp; Output</a></li>
-			<li id="C - File I/O"><a href="/cprogramming/c_file_io.htm">C - File I/O</a></li>
-			<li id="C - Preprocessors"><a href="/cprogramming/c_preprocessors.htm">C - Preprocessors</a></li>
-			<li id="C - Header Files"><a href="/cprogramming/c_header_files.htm">C - Header Files</a></li>
-			<li id="C - Type Casting"><a href="/cprogramming/c_type_casting.htm">C - Type Casting</a></li>
-			<li id="C - Error Handling"><a href="/cprogramming/c_error_handling.htm">C - Error Handling</a></li>
-			<li id="C - Recursion"><a href="/cprogramming/c_recursion.htm">C - Recursion</a></li>
-			<li id="C - Variable Arguments"><a href="/cprogramming/c_variable_arguments.htm">C - Variable Arguments</a></li>
-			<li id="C - Memory Management"><a href="/cprogramming/c_memory_management.htm">C - Memory Management</a></li>
-			<li id="C - Command Line Arguments"><a href="/cprogramming/c_command_line_arguments.htm">C - Command Line Arguments</a></li>
+			
+			<?php
+
+				while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+					if($row['name']=='C'){
+						$username = $row['username']; 
+						$id = $row['id']; 
+						$header = $row['header']; 
+						$beforecompiler = $row['beforeCompiler'];
+						$afterCompiler = $row['afterCompiler']; 
+						$code = $row['code']; 
+						echo '
+						<li><a id ='.$id.' href="#" onclick="load('.$id.')">C-'.$header.'</a></li>
+						';
+					}
+					
+				}
 
 
+			?>		
+			
+			
 			<li class="h4 title">C Programming useful Resources:</li>
 
 
@@ -105,7 +107,7 @@ include("rememberme.php");
 			<li id="C - Useful Resources"><a href="/cprogramming/c_useful_resources.htm">C - Useful Resources</a></li>
 			<li id="C - Discussion"><a href="/cprogramming/cprogramming_discussion.htm">C - Discussion</a></li>
 
-			
+
 
 			<a id="quiz" href="quiz.php"><li  class="h4 title">Quiz:</li></a>
 		</ul>
@@ -116,8 +118,8 @@ include("rememberme.php");
 	<div id="main">
 
 
-		<nav class="navbar navbar-inverse " role="navigation">
-			<!-- <div class="container-fluid"> -->
+		<nav class="navbar navbar-inverse navbar-fixed-top " role="navigation">
+			<div class="container-fluid">
 			<div class="navbar-header">
 				<!-- <button class="btn brandB"> -->
 				<a class="brandB" role="button" href="home.php"><img class="img" src="codenerd.png" height="50" width="100"></a>
@@ -136,9 +138,8 @@ include("rememberme.php");
 			<div class="navbar-collapse collapse" id="navCol">
 				<ul class="nav navbar-nav">
 					<!-- <li><a href="home.php">Home</a></li> -->
-					<li><a href="programming-tutorials.php">Technology</a></li>
-					<li><a href="algorithms.php">Algorithm</a></li>
-					<li><a href="#">About us</a></li>
+					<li><a href="programming-tutorials.php">TECHNOLOGY</a></li>
+					<li><a href="algorithms.php">ALGORITHM</a></li>
 
 				</ul>
 
@@ -171,13 +172,13 @@ include("rememberme.php");
 
 			</div>
 
-			<!-- </div> -->
+			</div>
 
 
 		</nav>
 
 
-		<button class="openbtn" onclick="openNav()">☰</button>
+		<button style="margin-top: 70px" class="openbtn" onclick="openNav()">☰</button>
 
 		<div id="beforeCompiler">
 
@@ -193,8 +194,8 @@ include("rememberme.php");
 
 			<select class="form-control" name="language">
 				<option value="c">C</option>
-				<option value="cpp">C++</option>
-				<option value="cpp11">C++11</option>
+				<option value="Python3">Python3</option>
+				<option value="cpp11">Bash Shell</option>
 				<option value="java">Java</option>
 
 
@@ -216,7 +217,6 @@ include("rememberme.php");
 		<div id="info">
 
 		</div>
-		<!-- </div> -->
 
 		<div id="afterCompiler">
 
@@ -429,8 +429,8 @@ include("rememberme.php");
 
 	<script>
 		function openNav() {
-			document.getElementById("mySidebar").style.width = "200px";
-			document.getElementById("main").style.marginLeft = "200px";
+			document.getElementById("mySidebar").style.width = "300px";
+			document.getElementById("main").style.marginLeft = "300px";
 		}
 
 		function closeNav() {
@@ -438,17 +438,6 @@ include("rememberme.php");
 			document.getElementById("main").style.marginLeft = "0";
 		}
 	</script>
-
-	<!-- <script>
-		$(function() {
-			$(".lined").linedtextarea({
-				selectedLine: 1
-			});
-		});
-	</script> -->
-
-	
-
 
 	<script>
 		//wait for page load to initialize script
@@ -462,7 +451,7 @@ include("rememberme.php");
 			//    console.log(datatopost);
 
 			$.ajax({
-				url: "ccompiler.php",
+				url: "compile.php",
 				type: "POST",
 				data: datatopost,
 				success: function(data) {
@@ -478,48 +467,34 @@ include("rememberme.php");
 
 		});
 
-		// fun = function(event, filename) {
-		// 	event.preventDefault();
 
+		//load data of programming tutorials from database
+		var load = function(data){
+        //    console.log("bal"+data);
+        $(this).click(function (event) { 
+    //        event.preventDefault();
+         });
+        
+            $.ajax({
+				url: "load.php",
+                type: "POST",
+                data:{
+                    data1:data
+                },
+				success: function(data) {
+					if (data) {
+						$("#beforeCompiler").html(data);
+						//              window.alert(data);
+					}
+				},
+				error: function() {
+					$("#beforeCompiler").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
+				}
+            });
 
+		} ;
 
-		// 	//	 var datatopost = $(this).serializeArray();
-		// 	//    console.log(datatopost);
-		// 	filename = filename + ".php";
-
-		// 	$.ajax({
-		// 		url: "c-home.php",
-		// 		type: "POST",
-		// 		//	data: datatopost,
-		// 		success: function(data) {
-		// 			if (data) {
-		// 				$("#beforeCompiler").html(data);
-		// 				//              window.alert(data);
-		// 			}
-		// 		},
-		// 		error: function() {
-		// 			$("#beforeCompiler").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
-		// 		}
-		// 	});
-
-		// 	//	$("#code").load("c.txt");
-
-		// }
-
-		// fun =  function(event,filename) {
-		// 	event.preventDefault();
-
-		// 	filename=filename+".php"
-		// 	$("#lesson").load(filename);  
-		// };
-
-
-		// $("#c-home").click(function(event) {
-		// 	fun(event, this);
-		// });
 	</script>
-
-
 
 </body>
 
