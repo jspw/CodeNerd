@@ -1,6 +1,8 @@
 <?php
 include ("connection.php");
 
+    echo "Hello";
+
     $id = $_POST['data1'];
 
     $sql = "SELECT * from languages WHERE id = '$id'";
@@ -18,11 +20,11 @@ include ("connection.php");
     $aftercompiler = $row['afterCompiler'];
     $code = $row['code'];
 
-    $data = array(
-        'beforecompiler' => $beforecompiler,
-        'aftercompiler' => $aftercompiler,
-        'code' => $code,
-    );
+    // $data = array(
+    //     'beforecompiler' => $beforecompiler,
+    //     'aftercompiler' => $aftercompiler,
+    //     'code' => $code,
+    // );
 
     // $data['beforecompiler'] = mb_convert_encoding($data['beforecompiler'], 'UTF-8', 'UTF-8');
     // $data['aftercompiler'] = mb_convert_encoding($data['aftercompiler'], 'UTF-8', 'UTF-8');
@@ -36,7 +38,7 @@ include ("connection.php");
     // echo ($data);
  //   echo ($data);
 
-    echo json_encode($data);
+    echo $code;
 
      }
 

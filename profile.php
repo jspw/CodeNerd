@@ -53,7 +53,7 @@ $currentcourse = $row['currentcourse'];
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="card-design.css">
-    <link rel="stylesheet" type="text/css" href="home.css">
+    <link rel="stylesheet" type="text/css" href="activities.css">
 
 
     <!-- icons  -->
@@ -89,12 +89,12 @@ $currentcourse = $row['currentcourse'];
 
                 </ul>
 
-                <form class="navbar-form navbar-left " role="search" method="POST">
+                <form action="search.php" class="navbar-form navbar-left" role="search" method="POST">
                     <div class="input-group">
                         <span class="input-group-btn">
-                            <button class="btn btn-info" type="submit">Go</button>
+                            <button class="btn btn-info" type="submit" name="go">Go</button> <!-- Search bar -->
                         </span>
-                        <input type="text" class="form-control" placeholder="Search" id="search">
+                        <input name="search" type="text" class="form-control" placeholder="Search" id="search">
 
                         <span class="glyphicon glyphicon-search form-control-feedback"></span>
 
@@ -223,49 +223,114 @@ $currentcourse = $row['currentcourse'];
                         <br><br>
 
                         <p>Education</p>
-                        <h4 style="color: black"><?php  echo $university ?></h4>
+                        <h4 style="color: black"><?php echo $university ?></h4>
 
                         <p>Field of Study</p>
-                        
-                        <h4><?php  echo $department ?></h4>
+
+                        <h4><?php echo $department ?></h4>
 
                         <p> More about me</p>
-                        <h5><?php  echo $aboutme ?></h5>
+                        <h5><?php echo $aboutme ?></h5>
 
                     </div>
                 </div>
             </div>
 
-            <div class="col-sm-6 col-md-6 col-lg-8" style="background-color: #FFFFFF">
+            <div class="col-sm-8 col-md-6 col-lg-8" style="background-color: #FFFFFF">
                 <div style="margin-left:20px;margin-top:20px;padding:20px">
 
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#home">Activities</a></li>
-                        <li><a data-toggle="tab" href="#menu1">Incomplete Courses</a></li>
-                        <li><a data-toggle="tab" href="#menu2">Achievements</a></li>
+                        <li class="active"><a data-toggle="tab" href="#activities">Activities</a></li>
+                        <li><a data-toggle="tab" href="#incomplete">Incomplete Courses</a></li>
+                        <li><a data-toggle="tab" href="#complete">Achievements</a></li>
+                        <li><a data-toggle="tab" href="#mytutorials">Own Tutorials</a></li>
                     </ul>
 
                     <div class="tab-content">
-                        <div id="home" class="tab-pane fade in active">
+                        <div id="activities" class="tab-pane fade in active">
                             <h3>Recent Activities</h3>
                             <p>Bla bla bla</p>
                             <ul>
 
                             </ul>
                         </div>
-                        <div id="menu1" class="tab-pane fade">
-                            <h3>Menu 1</h3>
-                            <p>Some content in menu 1.</p>
+                        <div id="incomplete" class="tab-pane fade">
+                            <h3>Incomplete Courses</h3>
+                            <p>bla bla bla</p>
                         </div>
-                        <div id="menu2" class="tab-pane fade">
-                            <h3>Menu 2</h3>
-                            <p>Some content in menu 2.</p>
+                        <div id="complete" class="tab-pane fade">
+                            <h3>complete Courses</h3>
+                            <p>bla bla bla</p>
+                        </div>
+                        <div id="mytutorials" class="tab-pane fade">
+                            <h3>My Tutorials</h3>
+                        
+                            <div class="panel-group">
+
+                                <?php
+                                include('connection.php');
+
+                                $username = $_SESSION['username'];
+                                //     echo $username;
+
+                                include("connection.php");
+                                $sql = "SELECT * FROM languages WHERE username='$username'";
+                                $result = mysqli_query($link, $sql);
+                                //    echo $result;
+                                if (!$result) {
+                                    die("Error : Unable to connect" . mysqli_error($result));
+                                    //  echo"<script>window.alert('Error')</script>";
+                                }
+
+                                while ($row = mysqli_fetch_array($result)) {
+                                    $name = $row['name'];
+                                    $id = $row['id'];
+                                    $header = $row['header'];
+                                    $beforecompiler = $row['beforeCompiler'];
+                                    $afterCompiler = $row['afterCompiler'];
+                                    $code = $row['code'];
+                                    //    echo $id ." <br>";
+                                    echo '
+
+                                    <div class="panel panel-default">
+
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                            <a data-toggle="collapse" href="' . '#' . $id . '">' . $name . ' - ' . $header . '</a>
+                                            
+                                            </h4>
+                                            
+                                        </div>
+
+                                            <div id="' . $id . '" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <div class="container-fluid">
+                                                    ' . $beforecompiler . '
+                                                </div>
+                                                <div class="container-fluid">
+                                                <pre> ' . $code . '</pre>
+                                                </div>
+                                                <div class="container-fluid">
+                                                    ' . $afterCompiler . '
+                                                </div>
+                                                
+                                            </div>
+                                            
+                                            
+                                        </div>
+
+                                    </div>
+                                        
+                                         ';
+                                }
+                                ?>
+                            </div>
                         </div>
                     </div>
-
                 </div>
 
             </div>
+
         </div>
     </div>
 
@@ -364,7 +429,7 @@ $currentcourse = $row['currentcourse'];
 
                             <input type="submit" class="btn btn-success btn-block" name="save" value="Save">
 
-                            <button  type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -416,7 +481,7 @@ $currentcourse = $row['currentcourse'];
                 success: function(data) {
 
                     location.reload();
-                    
+
                 },
                 error: function() {
                     $("#editintromessage").html(data);
@@ -430,7 +495,7 @@ $currentcourse = $row['currentcourse'];
 
 
 
-    <script src="home.js"></script>
+    <script src="activities.js"></script>
 
 
 </body>

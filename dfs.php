@@ -29,7 +29,8 @@ include("rememberme.php");
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 	<!-- custom css  -->
-	<link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="home.css">
 
 
 
@@ -154,17 +155,17 @@ include("rememberme.php");
 
 				</ul>
 
-				<form class="navbar-form navbar-left" role="search" method="POST">
-					<div class="input-group">
-						<span class="input-group-btn">
-							<button class="btn btn-info" type="submit">Go</button> <!-- Search bar -->
-						</span>
-						<input type="text" class="form-control" placeholder="Search" id="search">
+				<form action="search.php" class="navbar-form navbar-left" role="search" method="POST">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn btn-info" type="submit" name="go">Go</button> <!-- Search bar -->
+                        </span>
+                        <input name ="search" type="text" class="form-control" placeholder="Search" id="search">
 
-						<span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
 
-					</div>
-				</form>
+                    </div>
+                </form>
 
                             <ul class="nav navbar-nav navbar-right">
 

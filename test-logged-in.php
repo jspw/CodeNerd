@@ -73,7 +73,7 @@ include("rememberme.php");
 	<div id="mySidebar" class="sidebar">
 		<i href="javascript:void(0)" onclick="closeNav()" class=" closebtn fas fa-arrow-left" style="cursor: pointer ; margin-top: 70px"></i>
 
-		<ul class="list-group">
+		<ul id="listx" class="list-group">
 			<li class="h4 title">C Programming Tutorial:</li>
 			
 			<?php
@@ -140,17 +140,17 @@ include("rememberme.php");
 
 				</ul>
 
-				<form class="navbar-form navbar-left" role="search" method="POST">
-					<div class="input-group">
-						<span class="input-group-btn">
-							<button class="btn btn-info" type="submit">Go</button> <!-- Search bar -->
-						</span>
-						<input type="text" class="form-control" placeholder="Search" id="search">
+				<form action="search.php" class="navbar-form navbar-left" role="search" method="POST">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn btn-info" type="submit" name="go">Go</button> <!-- Search bar -->
+                        </span>
+                        <input name ="search" type="text" class="form-control" placeholder="Search" id="search">
 
-						<span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
 
-					</div>
-				</form>
+                    </div>
+                </form>
 			
                 <ul class="nav navbar-nav navbar-right">
                     <li role="presentation">
@@ -198,7 +198,7 @@ include("rememberme.php");
 
 		<button style="margin-top: 70px" class="openbtn" onclick="openNav()">☰</button>
 
-		<div id="beforeCompiler">
+		<div class="well" id="beforeCompiler">
 
 		</div>
 
@@ -294,30 +294,48 @@ include("rememberme.php");
 
 
 		//load data of programming tutorials from database
-		var load = function(data){
-        //    console.log("bal"+data);
-        $(this).click(function (event) { 
-    //        event.preventDefault();
-         });
-        
-            $.ajax({
-				url: "load.php",
-                type: "POST",
-                data:{
-                    data1:data
-                },
-				success: function(data) {
-					if (data) {
-						$("#beforeCompiler").html(data);
-						//              window.alert(data);
-					}
-				},
-				error: function() {
-					$("#beforeCompiler").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
-				}
-            });
+		var load = function(data) {
+                //    console.log("bal"+data);
+                var i=1;
+                    $(this).click(function(event) {
+                    //         event.preventDefault();
+                });
 
-		} ;
+                $.ajax({
+                    url: "load.php",
+                    type: "POST",
+                    data: {
+                        data1: data
+                    },
+                    success: function(data) {
+                        if (data) {
+                            console.log(data);
+                            data = JSON.parse(data);
+
+                          //  data = $.parseJSON
+
+                            $("#beforeCompiler").html(data['beforecompiler']);
+                            $("#afterCompiler").html(data['aftercompiler']);
+                            $("#code").html(data['code']);
+
+                            // $("#beforeCompiler").html(data);
+                            //              window.alert(data);
+                        }
+                    },
+                    error: function() {
+                        $("#beforeCompiler").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
+                    }
+                });
+
+                
+
+			};
+			
+			$("#listx").sortable({
+                //    placeholder:"ui-state-error",
+                //    cancel:"#nosortable"
+               });
+
 
 	</script>
 

@@ -9,6 +9,8 @@ foreach($_POST as $key => $value) {
          $key =  str_replace("equalx","=",$key);;
          $key =  str_replace("br31","[",$key);
          $key =  str_replace("br32","]",$key);
+         $key =  str_replace("<script>","fuck off mf ",$key);
+         $key =  str_replace("?php","fuck off mf ",$key);
          
     // $key =  str_replace("\"","'",$key);
     

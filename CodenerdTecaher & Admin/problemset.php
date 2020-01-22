@@ -1,3 +1,20 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="home.css"> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- <script src="bootstrap.min.js"></script> -->
+
+
+    <!-- <link rel="stylesheet" href="card-design.css"> -->
+
+    <title>CodeNerd</title>
+
+</head>
+
 <?php
 
 session_start();
@@ -335,8 +352,8 @@ text-align: center;">
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $username = $row['username'];
     echo '
-            
-            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
             <!-- <button class="btn brandB"> -->
@@ -354,9 +371,9 @@ text-align: center;">
         <div class="navbar-collapse collapse" id="navCol">
             <ul class="nav navbar-nav">
             <li role="presentation">
-                    <a href="homet.php">Write Tutorial</a>
-                </li>
-                <li role="presentation">
+            <a href="homet.php">Write Tutorial</a>
+        </li>
+            <li role="presentation">
                     <a href="problemset.php">Set Problem</a>
                 </li>
 
@@ -365,9 +382,11 @@ text-align: center;">
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
+            <li role="presentation">
+                        <a href="#"><span class="glyphicon glyphicon-bell"></span> Notifications<span class="badge">4</span></a>
+                          
+                     </li>
                 <li role="presentation">
-
-
                     <a href="profile.php"><span class="glyphicon glyphicon-user"></span> ' . $username . '</a>
 
 
@@ -381,39 +400,22 @@ text-align: center;">
 
     </div>
 </nav>
-
-
-
-
-<div class="container">
+            
+    <div class="container">
     <div class="row" style="margin-top: 100px">
 
         <div class="col-lg-6">
             <form id="submitform" class="form" method="POST">
-            <label for="sel1">Select language/Technology:</label>
-            <select type="text" name="language" id="language" class="form-control">
-                <option>C</option>
-                <option>Python3</option>
-                <option>HTML5</option>
-                <option>Java</option>
-                <option>Bash</option>
-            </select>
             
-                <label for="header">Header:</label>
+
+            
+                <label for="header">Name:</label>
                 <input class="form-control" type="text" name="header" id="header">
 
-                <label for="beforecompiler">Article 1 (Before Compiler):</label>
+                <label for="beforecompiler">Description:</label>
                 <p class="alert alert-info text-center">  Use html tags to look beautiful </p>
                 <textarea id="beforecompiler" name="beforecompiler" class="form-control" id="beforecompiler" rows="20"></textarea>
                 <p id="preview1" class="btn btn-primary pull-right">Preview</p>
-
-                <label for="code">Code:</label>
-                <textarea id="code" name="code" class="form-control" rows="10"></textarea>
-
-                <label for="aftercompiler">Article 2(After Compiler):</label>
-                <p class="alert alert-info text-center">  Use html tags to look beautiful </p>
-                <textarea id="aftercompiler" name="aftercompiler" class="form-control" rows="20"></textarea>
-                <p id="preview2" class="btn btn-primary pull-right">Preview</p>
                 <br>
 
                 <input type="submit" class="btn btn-success" value="Send">
@@ -430,13 +432,7 @@ text-align: center;">
             <h3 class="text-center">Preview</h3>
 
             <div class="well">
-                <label class="label label-success center-block" style="font-size: 20px">Article 1</label>
-                <div id="article1"></div><br><br><br>
-                <label class="center-block label label-success" style="font-size: 20px">Article 2</label>
-                <div id="article2"></div>
-                <div>
-
-                </div>
+                <div id="article1"></div>
 
             </div>
 
@@ -448,6 +444,7 @@ text-align: center;">
                     
 
 </div>
+
 
 <div class="container footer" >
           <!-- Container (Contact Section) -->
@@ -498,8 +495,8 @@ text-align: center;">
 
   </div>
 
-
-
             
             ';
 }
+
+

@@ -34,7 +34,8 @@ include("rememberme.php");
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 	<!-- custom css  -->
-	<link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="home.css">
 
 
 
@@ -152,8 +153,8 @@ include("rememberme.php");
 			<div class="navbar-collapse collapse" id="navCol">
 				<ul class="nav navbar-nav">
 					<!-- <li><a href="home.php">Home</a></li> -->
-					<li><a href="programming-tutorials-loged-in.php">Technology</a></li>
-                    <li><a href="algorithms-logged-in.php">Algorithm</a></li>
+					<li><a href="programming-tutorials-loged-in.php">TECHNOLOGY</a></li>
+                    <li><a href="algorithms-logged-in.php">ALGORITHM</a></li>
                     
                      <!-- DropDown Menu -->
                      <li class="dropdown">
@@ -170,17 +171,17 @@ include("rememberme.php");
 
 				</ul>
 
-				<form class="navbar-form navbar-left" role="search" method="POST">
-					<div class="input-group">
-						<span class="input-group-btn">
-							<button class="btn btn-info" type="submit">Go</button> <!-- Search bar -->
-						</span>
-						<input type="text" class="form-control" placeholder="Search" id="search">
+				<form action="search.php" class="navbar-form navbar-left" role="search" method="POST">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn btn-info" type="submit" name="go">Go</button> <!-- Search bar -->
+                        </span>
+                        <input name ="search" type="text" class="form-control" placeholder="Search" id="search">
 
-						<span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
 
-					</div>
-				</form>
+                    </div>
+                </form>
 
 				
                 <ul class="nav navbar-nav navbar-right">

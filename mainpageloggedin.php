@@ -49,12 +49,12 @@ if(!isset($_SESSION['user_id'])){
 
                 </ul>
 
-                <form class="navbar-form navbar-left" role="search" method="POST">
+                <form action="search.php" class="navbar-form navbar-left" role="search" method="POST">
                     <div class="input-group">
                         <span class="input-group-btn">
-                            <button class="btn btn-info" type="submit">Go</button>
+                            <button class="btn btn-info" type="submit" name="go">Go</button> <!-- Search bar -->
                         </span>
-                        <input type="text" class="form-control" placeholder="Search" id="search">
+                        <input name ="search" type="text" class="form-control" placeholder="Search" id="search">
 
                         <span class="glyphicon glyphicon-search form-control-feedback"></span>
 
@@ -109,7 +109,7 @@ if(!isset($_SESSION['user_id'])){
     <div class="container text-center" style="margin-top: 100px">
         <h2><b>CodeNerd</b></h2>
         <h4><em>Welcome codenerds!</em></h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Hey here you can find some awesome tutorials on  your favourite technologies such as programming languages,web developing,algorithms and many more .Happy coding ! </p>
     </div>
     
 

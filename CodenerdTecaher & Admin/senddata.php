@@ -40,20 +40,33 @@ if (empty($_POST['header'])) {
 
         //  }
 
-        $header = $_POST['header'];
-        $header =  str_replace("'", "\'", $header);
+        // $header = $_POST['header'];
+        // $header =  str_replace("'", "\'", $header);
+
+        // $beforecompiler = $_POST['beforecompiler'];
+        // $beforecompiler =  str_replace("'", "\'", $beforecompiler);
+        // $beforecompiler =  str_replace("\"", "\'", $beforecompiler);
+        // $beforecompiler =  str_replace("\\'", "", $beforecompiler);
+
+        // $code = $_POST['code'];
+        // $code =  str_replace("'", "\'", $code);
+
+        // $aftercompiler = $_POST['aftercompiler'];
+        // $aftercompiler =  str_replace("'", "\'", $aftercompiler);
+        // $aftercompiler =  str_replace("\"", "\'", $aftercompiler);
+
+
+                $header = $_POST['header'];
+        $header =  str_replace("'", '"', $header);
 
         $beforecompiler = $_POST['beforecompiler'];
-        $beforecompiler =  str_replace("'", "\'", $beforecompiler);
-        $beforecompiler =  str_replace("\"", "\'", $beforecompiler);
-        $beforecompiler =  str_replace("\\'", "", $beforecompiler);
+        $beforecompiler =  str_replace("'", '"', $beforecompiler);
 
         $code = $_POST['code'];
-        $code =  str_replace("'", "\'", $code);
+        $code =  str_replace("'", '"', $code);
 
         $aftercompiler = $_POST['aftercompiler'];
-        $aftercompiler =  str_replace("'", "\'", $aftercompiler);
-        $aftercompiler =  str_replace("\"", "\'", $aftercompiler);
+        $aftercompiler =  str_replace("'", '"', $aftercompiler);
 
         // print_r($_POST);
         $sql = "INSERT INTO demo (`username`,`name`,`header`,`beforeCompiler`,`code`,`afterCompiler`,`status`) VALUES('$username','$language','$header','$beforecompiler','$code','$aftercompiler','pending')";

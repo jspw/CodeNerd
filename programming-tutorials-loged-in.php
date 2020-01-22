@@ -49,12 +49,12 @@ if(!isset($_SESSION['user_id'])){
 
                 </ul>
 
-                <form class="navbar-form navbar-left" role="search" method="POST">
+                <form action="search.php" class="navbar-form navbar-left" role="search" method="POST">
                     <div class="input-group">
                         <span class="input-group-btn">
-                            <button class="btn btn-info" type="submit">Go</button>
+                            <button class="btn btn-info" type="submit" name="go">Go</button> <!-- Search bar -->
                         </span>
-                        <input type="text" class="form-control" placeholder="Search" id="search">
+                        <input name ="search" type="text" class="form-control" placeholder="Search" id="search">
 
                         <span class="glyphicon glyphicon-search form-control-feedback"></span>
 
